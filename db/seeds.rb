@@ -8,10 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts "Destroying users, coproperties, meetings and documents"
-User.destroy_all
-Coproperty.destroy_all
 Meeting.destroy_all
 Document.destroy_all
+Coproperty.destroy_all
+User.destroy_all
 puts "Done destroying"
 
 puts "Creating coproperty"
@@ -41,25 +41,20 @@ meeting2.save!
 puts "Done creating meetings"
 
 puts "Creating documents"
-document1 = Document.new(name: "Devis travaux", tag: "devis")
-document1.user = user1
-document1.coproperty = coproperty1
+document1 = Document.new(name: "Devis travaux", tag: "devis", documentable: meeting2, user: user1, coproperty: coproperty1)
 file1 = File.open(Rails.root.join("app/assets/images/seeds/devis.jpg"))
 document1.file.attach(io: file1, filename: "devis.jpg", content_type: "image/jpg")
 document1.save!
 
-document2 = Document.new(name: "Devis ascenseur", tag: "devis")
-document2.user = user1
-document2.coproperty = coproperty1
-file2 = File.open(Rails.root.join("app/assets/images/seeds/ascenseur.jpg"))
-document2.file.attach(io: file2, filename: "ascenseur.jpg", content_type: "image/jpg")
+document2 = Document.new(name: "Devis ascenseur", tag: "devis", documentable: meeting2, user: user1, coproperty: coproperty1)
+file2 = File.open(Rails.root.join("app/assets/images/seeds/ascenseur.jpeg"))
+document2.file.attach(io: file2, filename: "ascenseur.jpeg", content_type: "image/jpeg")
 document2.save!
 
-document3 = Document.new(name: "Devis poubelles", tag: "devis")
-document3.user = user1
-document3.coproperty = coproperty1
+document3 = Document.new(name: "Devis poubelles", tag: "devis", documentable: meeting1, user: user1, coproperty: coproperty1)
 file3 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
-document2.file.attach(io: file3, filename: "poubelles.jpg", content_type: "image/jpg")
+document3.file.attach(io: file3, filename: "poubelles.jpg", content_type: "image/jpg")
 document3.save!
+
 puts "Done creating documents"
 puts "Seed done"
