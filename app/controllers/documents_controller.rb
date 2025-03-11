@@ -18,7 +18,7 @@ class DocumentsController < ApplicationController
     @document.user = current_user
     @document.coproperty_id = current_user.coproperty_id
     if @document.save
-      redirect_to documents_path
+      redirect_to document_path(@document)
     else
       render :new, status: :unprocessable_entity
     end
