@@ -1,16 +1,16 @@
 <div class="container mt-5 d-flex justify-content-center">
   <div class = "card border-0 rounded shadow-lg p-4" style="max-width: 700px; width: 100%;">
 
-  <h2 class="text-center" style = "color: #595959;">Update your meeting</h2>
+  <h2 class="text-center" style = "color: #595959;">Modifier votre réunion</h2>
     <%= simple_form_for [@meeting] do |f| %>
       <div class="form-group mb-3">
-        <%= f.input :title, label: "Title" %>
+        <%= f.input :title, label: "Titre" %>
       </div>
       <div class="form-group mb-3">
         <%= f.input :description, label: "Description" %>
       </div>
       <div class="form-group mb-3">
-        <%= f.input :link, label: "Link" %>
+        <%= f.input :link, label: "Lien" %>
       </div>
       <div class="form-group mb-3">
         <%= f.input :date, label: "Date" %>

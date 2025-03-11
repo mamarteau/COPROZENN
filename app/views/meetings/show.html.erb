@@ -1,9 +1,21 @@
 <div class="container mt-5 d-flex justify-content-center">
-  <div class = "card border-0 rounded shadow-lg p-4" style="max-width: 700px; width: 100%;">
+  <div class="card border-0 rounded shadow-lg p-4" style="max-width: 700px; width: 100%;">
     <h2><%= @meeting.title %></h2>
     <p><%= @meeting.date %></p>
     <p><%= @meeting.link %></p>
     <p><%= @meeting.description %></p>
+
     <p><%= link_to "Ajouter un document", new_meeting_document_path(@meeting), class:"button-card"%></p>
   </div>
+
+  <div class="d-flex flex-column">
+    <% @decisions.each do |decision|  %>
+      <div>
+        <p><%= decision.description %></p>
+        <p><%= link_to "Pour", decision_votes_path(decision, value: true), data: { turbo_method: :post }, class: "btn btn-success" %></p>
+        <p><%= link_to "Contre", decision_votes_path(decision, value: false), data: { turbo_method: :post }, class: "btn btn-danger" %></p>
+      </div>
+    <% end %>
+  </div>
+
 </div>
