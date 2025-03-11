@@ -2,17 +2,13 @@
   <div class = "card border-0 rounded shadow-lg p-4" style="max-width: 700px; width: 100%;">
     <h2 class="display-5" style="color:rgb(86, 87, 87); font-family: 'Arial', sans-serif; text-align: center; font-size: 2.5rem;border-bottom: 1px solid rgb(221, 219, 219); padding-bottom: 10px;">Ajouter un document</h2>
 
-    <%= simple_form_for(@document) do |f| %>
+    <%= simple_form_for([@documentable, @document]) do |f| %>
       <div class="form-group mb-3">
         <%= f.input :name, label: "Nom" %>
       </div>
 
       <div class="form-group mb-3">
         <%= f.input :tag, label: "Tag" %>
-      </div>
-
-      <div class="form-group mb-3">
-        <%= f.input :documentable, label: "Ajouté à" %>
       </div>
 
       <div class="form-group mb-3">

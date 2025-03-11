@@ -9,16 +9,14 @@ Rails.application.routes.draw do
 
   resources :meetings, only: [:index, :new, :create, :show, :update, :edit] do
     resources :decisions, only: [:new, :create]
+    resources :documents, only: [:new, :create]
   end
 
   resources :decisions, only: [:index, :show, :update, :edit] do
+    resources :documents, only: [:new, :create]
     resources :votes, only: [:create]
   end
 
   resources :documents, only: [:index, :show, :new, :create]
-
-  # Defines the root path route ("/")
-  # root "posts#index"
-
 
 end

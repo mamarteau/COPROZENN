@@ -29,10 +29,12 @@ class MeetingsController < ApplicationController
 
   def update
     if @meeting.update(meeting_params)
+      redirect_to meeting_path(@meeting)
+    else
       redirect_to meeting_path(@meeting), notice: "Meeting mise à jour."
      else
       render :edit, status: :unprocessable_entity
-     end
+    end
   end
 
   private
