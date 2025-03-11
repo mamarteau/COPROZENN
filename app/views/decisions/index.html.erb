@@ -1,0 +1,10 @@
+<h1>Liste des décisions</h1>
+<%= link_to 'Nouvelle décision', new_decision_path %>
+<ul>
+  <% @decisions.each do |decision| %>
+    <li>
+      <%= link_to decision.description, decision_path(decision) %>
+      <%= link_to 'Modifier', edit_decision_path(decision) %> |
+    </li>
+  <% end %>
+</ul>

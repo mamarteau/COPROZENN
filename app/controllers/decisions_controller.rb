@@ -1,5 +1,6 @@
 class DecisionsController < ApplicationController
   before_action :set_decision, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:create, :update]
 
   def index
     @decisions = Decision.all
