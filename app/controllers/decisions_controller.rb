@@ -8,7 +8,7 @@ class DecisionsController < ApplicationController
 
 
  def show
-  
+
  end
 
  def new

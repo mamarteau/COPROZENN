@@ -7,4 +7,15 @@
 
     <%= link_to "Créer une decision", new_meeting_decision_path(@meeting), class:"button-card"%>
   </div>
+
+  <div class="d-flex flex-column">
+    <% @decisions.each do |decision|  %>
+      <div>
+        <p><%= decision.description %></p>
+        <p><%= link_to "Pour", decision_votes_path(decision, value: true), data: { turbo_method: :post }, class: "btn btn-success" %></p>
+        <p><%= link_to "Contre", decision_votes_path(decision, value: false), data: { turbo_method: :post }, class: "btn btn-danger" %></p>
+      </div>
+    <% end %>
+  </div>
+
 </div>
