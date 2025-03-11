@@ -6,7 +6,7 @@ class MeetingsController < ApplicationController
   end
 
   def show
-
+    @decisions = @meeting.decisions - @meeting.decisions.joins(:votes).where(user: current_user).uniq
   end
 
   def new
