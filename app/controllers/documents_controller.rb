@@ -13,16 +13,16 @@ class DocumentsController < ApplicationController
     @document = Document.new
   end
 
-  def create
-    @document = Document.new(document_params)
-    @document.user = current_user
-    @document.coproperty_id = current_user.coproperty_id
-    if @document.save
-      redirect_to document_path(@document)
-    else
-      render :new, status: :unprocessable_entity
-    end
-  end
+  # def create
+  #   @document = Document.new(document_params)
+  #   @document.user = current_user
+  #   @document.coproperty_id = current_user.coproperty_id
+  #   if @document.save
+  #     redirect_to document_path(@document)
+  #   else
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
 
   private
 
