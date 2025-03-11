@@ -10,10 +10,10 @@
 
       <div class="form-group mb-3">
         <h4 style="color:rgb(86, 87, 87)" style="font-family: 'Arial', sans-serif;">Ajouté pour</h4>
-        <% if @document.documentable_type == "meeting" %>
-          <p>Réunion</p>
-        <% else @document.documentable_type == "decision" %>
-          <p>Décision</p>
+        <% if !@document.documentable_id.present? %>
+          <p><%= @document.coproperty.name %></p>
+        <% else %>
+          <p><%= @document.documentable %></p>
         <% end %>
       </div>
 

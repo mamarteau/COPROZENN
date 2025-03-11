@@ -4,5 +4,6 @@
     <p><%= @meeting.date %></p>
     <p><%= @meeting.link %></p>
     <p><%= @meeting.description %></p>
+    <p><%= link_to "Ajouter un document", new_meeting_document_path(@meeting), class:"button-card"%></p>
   </div>
 </div>

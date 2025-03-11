@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
   # before_action :authenticate_user!, only: [:index, :show, :new, :create]
   before_action :set_document, only: [:show]
+  before_action :set_documentable, only: [:new, :create]
 
   def index
     @documents = Document.where(coproperty: current_user.coproperty)
@@ -17,8 +18,9 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
     @document.user = current_user
     @document.coproperty_id = current_user.coproperty_id
+    @document.documentable = @documentable
     if @document.save
-      redirect_to document_path(@document)
+      redirect_to @documentable || @document
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,8 +32,15 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:id])
   end
 
-  def document_params
-    params.require(:document).permit(:name, :tag, :file)
+  def set_documentable
+    @documentable = if params[:meeting_id].present?
+      Meeting.find(params[:meeting_id])
+    elsif params[:decision_id].present?
+      Decision.find(params[:decision_id])
+    end
   end
 
+  def document_params
+    params.require(:document).permit(:name, :tag, :file, :meeting_id, :decision_id)
+  end
 end
