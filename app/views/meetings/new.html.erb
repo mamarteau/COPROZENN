@@ -13,7 +13,9 @@
         <%= f.input :link, label: "Link" %>
       </div>
       <div class="form-group mb-3">
-        <%= f.input :date, label: "Date" %>
+        <%= f.input :date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
       </div>
       <div class="d-flex justify-content">
         <%= f.submit "Submit", class: "button-card" %>
