@@ -1,0 +1,8 @@
+<ul>
+  <% @meetings.each do |meeting| %>
+    <li><%= meeting.title %></li>
+    <li><%= meeting.date %></li>
+    <li><%= meeting.link %></li>
+    <li><%= meeting.description %></li>
+  <% end %>
+</ul>
