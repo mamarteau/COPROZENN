@@ -1,8 +1,8 @@
-<div class="container mt-5 d-flex justify-content-center">
-  <div class = "card border-0 rounded shadow-lg p-0" style="max-width: 700px; width: 100%;">
+<div class="container mt-5 d-flex justify-content-center flex-column">
+  <div class = "meeting-card border-0 shadow-lg p-0" style="max-width: 700px; width: 100%;">
 
-  <div class="card-header">
-  <h2 class="text-center card-text">Créer une decision</h2>
+  <div class="meeting-card-header">
+  <h2 class="text-center">Créer une decision</h2>
   </div>
     <%= simple_form_for [@meeting, @decision] do |f| %>
     <div class="card-body">
@@ -25,6 +25,16 @@
       </div>
     <% end %>
       </div>
+    </div>
+  </div>
+
+  <div class="alert-card">
+    <div class="alert-card-left-side">
+      <%# picto %>
+      <%= image_tag "icons/notification.png", class: "icon"  %>
+    </div>
+    <div class="alert-card-right-side">
+      <p> Réunion le 25/01/26 </p>
     </div>
   </div>
 </div>
