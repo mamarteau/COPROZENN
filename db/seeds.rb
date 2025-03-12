@@ -8,11 +8,13 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-puts "Destroying votes, decisions, meetings, documents, coproperties, and users"
+puts "Destroying votes, decisions, meetings, documents, chatmembers, chatrooms, coproperties, and users"
 Vote.destroy_all
 Decision.destroy_all
 Meeting.destroy_all
 Document.destroy_all
+ChatMember.destroy_all
+Chatroom.destroy_all
 Coproperty.destroy_all
 User.destroy_all
 puts "Done destroying"
@@ -29,6 +31,10 @@ user1.save!
 user2 = User.new(first_name: "Glenda", last_name: "John", email: "glenda@gmail.com", password: "testdemdp", status: false, square_meters: 120)
 user2.coproperty = coproperty1
 user2.save!
+
+user3 = User.new(first_name: "Jean", last_name: "Lefevre", email: "jean@gmail.com", password: "testdemdp", status: false, square_meters: 100)
+user3.coproperty = coproperty1
+user3.save!
 puts "Done creating users"
 
 puts "Creating meetings"
@@ -60,4 +66,23 @@ document3.file.attach(io: file3, filename: "poubelles.jpg", content_type: "image
 document3.save!
 
 puts "Done creating documents"
+
+puts "Creating chatrooms"
+chatroom1 = Chatroom.new(coproperty: coproperty1)
+chatroom1.save!
+chatroom2 = Chatroom.new(coproperty: coproperty1)
+chatroom2.save!
+puts "Done creating chatrooms"
+
+puts "Creating chatmembers"
+chatmember1 = ChatMember.new(user: user1, chatroom: chatroom1)
+chatmember1.save!
+chatmember2 = ChatMember.new(user: user2, chatroom: chatroom1)
+chatmember2.save!
+chatmember3 = ChatMember.new(user: user3, chatroom: chatroom2)
+chatmember3.save!
+chatmember4 = ChatMember.new(user: user1, chatroom: chatroom2)
+chatmember4.save!
+puts "Done creating chatmembers"
+
 puts "Seed done"

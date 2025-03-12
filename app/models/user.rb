@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :meetings
   belongs_to :coproperty
   has_many :chat_members
+  has_many :chatrooms, through: :chat_members
 end
