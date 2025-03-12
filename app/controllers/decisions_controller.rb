@@ -1,5 +1,5 @@
 class DecisionsController < ApplicationController
-  before_action :set_decision, only: [:show, :edit, :update]
+  before_action :set_decision, only: [:show, :edit, :update, :close]
   before_action :authenticate_user!, only: [:create, :update]
 
   def index
@@ -7,9 +7,9 @@ class DecisionsController < ApplicationController
   end
 
 
- def show
+  def show
 
- end
+  end
 
  def new
   @meeting = Meeting.find(params[:meeting_id])
@@ -37,6 +37,7 @@ class DecisionsController < ApplicationController
   end
  end
 
+
   def edit
   end
 
@@ -48,12 +49,17 @@ class DecisionsController < ApplicationController
     end
   end
 
+  def close
+    @decision.closed!
+    @decision.update(accepted: @decision.for >= @decision.against)
+    redirect_to @decision.meeting
+  end
 
-   private
+  private
 
-   def decision_params
-     params.require(:decision).permit(:description)
-   end
+  def decision_params
+    params.require(:decision).permit(:description)
+  end
 
    def document_params
     params.require(:decision).permit(:file, :document_tag, :document_name)
