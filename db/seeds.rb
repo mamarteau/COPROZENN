@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 puts "Destroying users, coproperties, meetings and documents"
+Vote.destroy_all
+Decision.destroy_all
 Meeting.destroy_all
 Document.destroy_all
 Coproperty.destroy_all
