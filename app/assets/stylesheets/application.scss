@@ -13,6 +13,7 @@
 
 .header {
   background-size: cover;
+  margin-bottom: 50px;
   background-position: top center;
   height: 150px;
   width: 100%;
@@ -22,6 +23,9 @@
   overflow: hidden;
   border-radius: 122px 34px 260px 260px / 0px 0px 100px 100px;
   justify-content: center;
+  h5 {
+    position: absolute;
+  }
 }
 
 .logo {
@@ -34,8 +38,13 @@
     width: 100%;
     height: 100%;
   }
+
 }
 
 body {
   background-color: #f1ece6 !important;
+}
+
+h5 {
+  color: #036666;
 }
