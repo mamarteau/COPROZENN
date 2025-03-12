@@ -4,11 +4,12 @@
     <div class="col">
       <% @decisions.each do |decision| %>
         <div class="card">
-          <h1 class="card-title"><%= decision.title %></h1>
+          <h1 class="card-title"><%= decision.description %></h1>
           <p class="card-body"><%= decision.status %></p>
-          <%= link_to 'Modifier', edit_decision_path(decision) %> |
+          <%= link_to 'Modifier', edit_decision_path(decision) %> | <%= link_to 'Decision details', decision_path(decision) %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
