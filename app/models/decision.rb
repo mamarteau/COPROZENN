@@ -4,10 +4,15 @@ class Decision < ApplicationRecord
   has_many :documents, as: :documentable
   has_many :votes
 
+
   enum :status, {
     opened: 0,
     closed: 1
   }
+
+  
+  attr_accessor :document_name, :document_tag
+
 
   def already_voted_by?(user)
     self.votes.find_by(user: user).present?
@@ -16,6 +21,7 @@ class Decision < ApplicationRecord
   def vote_of(user)
     self.votes.find_by(user: user)
   end
+
 
   def for
     self.votes.where(value: true).count
