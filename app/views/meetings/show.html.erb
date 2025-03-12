@@ -9,7 +9,8 @@
     <p><%= link_to "Ajouter un document", new_meeting_document_path(@meeting), class:"button-card"%></p>
 
     <p><%= link_to "Ajouter une decision", new_meeting_decision_path(@meeting), class:"button-card"%></p>
-    <div class="d-flex flex-column gap-4">
+
+    <div class="d-flex flex-column gap-4" data-controller="vote">
   <% @decisions.each do |decision| %>
     <div class="card p-3">
       <div><strong><%= decision.description %></strong></div>
@@ -18,10 +19,10 @@
       <% pourcentage_pour = total_votes.zero? ? 0 : ((decision.votes.where(value: true).count / total_votes) * 100).round %>
       <% pourcentage_contre = total_votes.zero? ? 0 : ((decision.votes.where(value: false).count / total_votes) * 100).round %>
 
-      <% if decision.already_voted_by?(current_user) %>
-        <div>
-          <div><span>Votes "pour" :</span> <span><%= decision.votes.where(value: true).count %></span></div>
-          <div><span>Votes "contre" :</span> <span><%= decision.votes.where(value: false).count %></span></div>
+      <% if decision.already_voted_by?(current_user) || decision.closed? %>
+        <div data-vote-target="voteSection">
+          <div><span></span> <span><%= decision.votes.where(value: true).count %></span> pour</div>
+          <div><span></span> <span><%= decision.votes.where(value: false).count %></span> contre</div>
         </div>
 
         <div class="progress mt-2">
@@ -55,20 +56,33 @@
           <%= link_to "Contre", decision_votes_path(decision, value: false), data: { turbo_method: :post }, class: "btn btn-danger" %>
         </div>
       <% end %>
+
+      <% if current_user.status == true && decision.opened? %>
+        <%= link_to "Clôturer le vote", close_decision_path(decision), class: "btn btn-primary", data: { turbo_method: :patch } %>
+      <% end %>
+
+
+      <% if decision.closed? %>
+        <div data-vote-target="resultSection" class="mt-3">
+          <% total_pour = decision.for%>
+          <% total_contre = decision.against %>
+
+          <% if total_pour > total_contre %>
+            <p>La majorité a voté <strong>"Pour"</strong> avec <%= total_pour %> votes.</p>
+          <% elsif total_contre > total_pour %>
+            <p>La majorité a voté <strong>"Contre"</strong> avec <%= total_contre %> votes.</p>
+          <% else %>
+            <p>Il y a une égalité avec <%= total_pour %> votes "Pour" et <%= total_contre %> votes "Contre".</p>
+          <% end %>
+        </div>
+      <% end %>
+
     </div>
   <% end %>
 </div>
 
 
-    <p><%= link_to "Tous les meetings", meetings_path, class:"button-card"%></p>
   </div>
-
-
-  </div>
-
-
-
-
       <% if @meeting.documents.any? %>
         <% @meeting.documents.each do |document| %>
          <div class = "card border-0 rounded shadow-lg p-4" style="max-width: 300px;">
@@ -76,6 +90,12 @@
         </div>
         <% end %>
       <% end %>
+    <p><%= link_to "Tous les meetings", meetings_path, class:"button-card"%></p>
   </div>
+
+
+  </div>
+
+
 
 </div>

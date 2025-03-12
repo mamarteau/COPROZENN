@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :decisions, only: [:index, :show, :update, :edit] do
     resources :documents, only: [:new, :create]
     resources :votes, only: [:create]
+      member do
+        patch :close
+      end
   end
 
   resources :documents, only: [:index, :show, :new, :create]
