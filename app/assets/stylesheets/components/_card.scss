@@ -3,9 +3,9 @@
   border-radius: 10px;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 180px;
-  height: 250px;
+  width: 150px;
   font-family: Arial, sans-serif;
+  margin-bottom: 10px;
 }
 .meeting-card-header {
   background: #358F80;
@@ -69,4 +69,8 @@
 .icon {
   width: 25px;
   height: 25px;
+}
+
+.title-card {
+  background-color:#358F80;
 }
