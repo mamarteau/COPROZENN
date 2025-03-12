@@ -3,12 +3,14 @@
   <div class="row">
     <% @meetings.each do |meeting| %>
       <div class="col-6">
-        <div class="card">
-          <div class="title-card">
+        <div class="meeting-card">
+          <div class="meeting-card-header">
             <p><%= meeting.date %></p>
           </div>
+          <div class="text", style = "padding-left: 10px";>
           <p class="card-title"><%= meeting.title %></p>
           <p class="card-text"><em><%= meeting.description %></em></p>
+          </div>
         </div>
       </div>
     <% end %>
