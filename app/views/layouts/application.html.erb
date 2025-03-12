@@ -13,13 +13,20 @@
     <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%= render 'shared/ios_pwa_links' %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   </head>
 
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-
+    <header class="header">
+      <%= image_tag "header.png" %>
+      <div class= "logo">
+        <%= image_tag "logo.png" %>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
