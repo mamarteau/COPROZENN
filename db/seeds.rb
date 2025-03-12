@@ -7,7 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-puts "Destroying users, coproperties, meetings and documents"
+puts "Destroying decisions, meetings, documents, coproperties, and users"
+Decision.destroy_all
 Meeting.destroy_all
 Document.destroy_all
 Coproperty.destroy_all
