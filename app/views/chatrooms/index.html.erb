@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h1>Mes Conversations</h1>
+    <div class="container mt-5">
+      <div class="row justify-content-evenly g-3">
+        <% if @chatrooms.empty? %>
+        <div class="card text-center" style="color: #6c757d; width: 15rem; margin: auto; height: 16rem; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
+          <div class="card-body" style="padding: 1rem;">
+             <h5 class="card-title" style="color: #6c757d; font-size: 1rem; margin-bottom: 0.25rem;text-align: center;">Aucune conversation</h5>
+          </div>
+        </div>
+        <% else %>
+          <ul>
+          <% @chatrooms.each do |chatroom| %>
+            <div class="card text-center" style="width: 18rem;">
+              <% other_user = chatroom.users.where.not(id: current_user.id).first %>
+              <li><%= link_to "#{other_user.first_name}", chatroom_path(chatroom), class:"button-card"%></li>
+            </div>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="card text-center" style="width: 18rem;">
+        <%= link_to "Nouvelle conversation", new_chatroom_path, class:"button-card"%>
+      </div>
+    </div>
+</div>
+
