@@ -1,0 +1,43 @@
+.primary-btn {
+  background-color: #358F80;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 16px;
+  display: inline-block;
+  border: none;
+  outline: none;
+}
+.primay-btn:hover {
+  background-color: #358F80;
+  transform: translateY(-2px);
+}
+
+.primary:focus {
+  outline: none;
+}
+
+
+.secondary-btn {
+  background-color: #f1ece6;
+  color: #358F80;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 16px;
+  display: inline-block;
+  border: 2px solid #358F80;
+  outline: none;
+}
+
+.secondary-btn:hover {
+  background-color: #f1ece6;
+  transform: translateY(-2px);
+}
+
+.secondary-btn:focus {
+  outline: none;
+}

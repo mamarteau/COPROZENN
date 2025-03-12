@@ -6,7 +6,7 @@ class MeetingsController < ApplicationController
   end
 
   def show
-    @decisions = @meeting.decisions - @meeting.decisions.joins(:votes).where(user: current_user).uniq
+    @decisions = @meeting.decisions # - @meeting.decisions.joins(:votes).where(user: current_user).uniq
   end
 
   def new
@@ -39,7 +39,8 @@ class MeetingsController < ApplicationController
 
   def update
     if @meeting.update(meeting_params)
-      redirect_to meeting_path(@meeting), notice: "Meeting mise à jour."
+    redirect_to meeting_path(@meeting), notice: "Meeting mise à jour."
+
     else
       render :edit, status: :unprocessable_entity
     end
