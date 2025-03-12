@@ -1,11 +1,14 @@
 <h1>Liste des décisions</h1>
-  <%= link_to 'Ajouter uneouvelle décision', new_meeting_decision_path %>
-<ul>
-  <% @decisions.each do |decision| %>
-    <li>
-      <p><%= decision.title %></p>
-      <p><%= decision.status %></p>
-      <%= link_to 'Modifier', edit_decision_path(decision) %> |
-    </li>
-  <% end %>
-</ul>
+<div class="cards-container">
+  <div class="row">
+    <div class="col">
+      <% @decisions.each do |decision| %>
+        <div class="card">
+          <h1 class="card-title"><%= decision.title %></h1>
+          <p class="card-body"><%= decision.status %></p>
+          <%= link_to 'Modifier', edit_decision_path(decision) %> |
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
