@@ -20,6 +20,15 @@
       <div class="form-group mb-3">
         <%= f.input :file, as: :file, label: "Document" %>
       </div>
+
+      <div class="form-group mb-3">
+        <%= f.input :document_name, label: "Nom document" %>
+      </div>
+
+      <div class="form-group mb-3">
+        <%= f.input :document_tag, label: "Tag document" %>
+      </div>
+
       <div class="d-flex justify-content">
         <%= f.submit "Submit", class: "button-card" %>
       </div>

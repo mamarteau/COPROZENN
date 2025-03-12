@@ -21,12 +21,12 @@ class DecisionsController < ApplicationController
   @decision = Decision.new(decision_params)
   @decision.user = current_user
   @decision.meeting = @meeting
-    if @decision.save
-      redirect_to decision_path(@decision)
-    else
-      render :new, status: :unprocessable_entity
-    end
+  if @decision.save
+    redirect_to decision_path(@decision)
+  else
+    render :new, status: :unprocessable_entity
   end
+end
 
   def edit
   end
