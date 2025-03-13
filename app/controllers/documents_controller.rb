@@ -10,6 +10,8 @@ class DocumentsController < ApplicationController
   end
 
   def show
+    @title = @document.name
+
   end
 
   def new
