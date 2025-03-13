@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   end
 
   resources :decisions, only: [:index, :show, :update, :edit] do
+    member do
+      get :vote
+    end
+
     resources :documents, only: [:new, :create]
     resources :votes, only: [:create]
       member do
@@ -24,6 +28,7 @@ Rails.application.routes.draw do
 
   resources :chatrooms, only: [:index, :show, :new, :create] do
     resources :chat_members, only: [:create]
+    resources :messages, only: [:create]
   end
 
 end
