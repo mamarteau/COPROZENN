@@ -1,0 +1,33 @@
+.search-form {
+  width: 100%;
+  max-width: 400px; 
+}
+
+.search-form .input-group {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.search-form .form-control {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.search-form .btn-outline-secondary {
+  border-radius: 5px;
+  background-color: #358F80;
+  color: white;
+  border: 1px solid #358F80;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.search-form .btn-outline-secondary:hover {
+  background-color: #2d7561;
+}
+
+.search-form .form-control:focus,
+.search-form .btn-outline-secondary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(53, 143, 128, 0.25);
+}
