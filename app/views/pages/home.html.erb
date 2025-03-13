@@ -1,18 +1,27 @@
 <div class="container">
-  <h4>Mes prochaines réunions :</h4>
+  <h4><strong>Mes prochaines réunions :</strong></h4>
+  <br>
   <div class="row">
     <% @meetings.each do |meeting| %>
-      <div class="col-6">
+      <div class="col-6 col-sm-6 col-md-4">
         <div class="meeting-card">
           <div class="meeting-card-header">
-            <p><%= meeting.date %></p>
+            <p><%= meeting.date %></p> <i class="fa-regular fa-clock"></i> 18h
           </div>
           <div class="text", style = "padding-left: 10px";>
-          <p class="card-title"><%= meeting.title %></p>
-          <p class="card-text"><em><%= meeting.description %></em></p>
+            <p class="card-title"><%= meeting.title %></p>
+            <p style="font-size: 12px;" class="card-text"><em><%= meeting.description %></em></p>
+          </div>
+          <div class ="card-text-icone">
+            <i class="fa-solid fa-plus" style="font-size: 12px;"></i> <span style="font-size: 12px;">Ajouter des décisions</span>
+
+            <br>
+            <i class="fa-regular fa-eye" style="font-size: 12px;"></i> <span style="font-size: 12px;"> Accéder aux documents</span>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+  <h4><strong>Mes notifications :</strong></h4>
+
 </div>
