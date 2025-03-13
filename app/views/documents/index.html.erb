@@ -1,27 +1,29 @@
 <div class="container mt-5">
-  <h1>Mes Documents</h1>
-    <div class="container mt-5">
-      <div class="row justify-content-evenly g-3">
-        <% if @documents.empty? %>
-        <div class="card" style="color: #6c757d; width: 15rem; margin: auto; height: 16rem; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
-          <div class="card-body" style="padding: 1rem;">
-             <h5 class="card-title" style="color: #6c757d; font-size: 1rem; margin-bottom: 0.25rem;text-align: center;">Aucun document</h5>
+  <div class="row">
+    <div class="col-12">
+      <%= link_to "Ajouter un document", new_document_path, class:"secondary-btn float-end" %>
+    </div>
+  </div>
+<div class="row justify-content-evenly g-3 mt-3">
+  <% if @documents.empty? %>
+    <div class="card" style="color: #6c757d; width: 80%; margin: auto; height: 16rem; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
+      <div class="card-body" style="padding: 1rem;">
+        <h5 class="card-title" style="color: #6c757d; font-size: 1rem; margin-bottom: 0.25rem;text-align: center;">Aucun document</h5>
+      </div>
+    </div>
+  <% else %>
+    <% @documents.each do |document| %>
+      <%= link_to document_path(document), class: "text-decoration-none" do %>
+        <div class="document-affichage">
+          <div class="document-icon">
+            <i class="fa-regular fa-file"></i>
+          </div>
+          <div class="document-name">
+            <p><%= document.name %></p>
           </div>
         </div>
-        <% else %>
-          <% @documents.each do |document| %>
-            <div class="card" style="width: 18rem;">
-              <%= cl_image_tag document.file.key, class:"d-block w-100" %>
-              <%= link_to "See the document", document_path(document), class:"button-card"%>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="container mt-5">
-          <div class="row justify-content-evenly g-3">
-        <p><%= link_to "Ajouter un document", new_document_path, class:"button-card"%></p>
-      </div>
-    </div>
+      <% end %>
+    <% end %>
+   <% end %>
+  </div>
 </div>

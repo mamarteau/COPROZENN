@@ -3,10 +3,21 @@
   border-radius: 10px;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 150px;
+  width: 100%;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 10px;
+  height: 230px;
+
+  a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    height: 40%;
+  }
 }
+
 .meeting-card-header {
   background: #358F80;
   color: white;
@@ -14,17 +25,33 @@
   font-weight: bold;
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
+  padding: 10px 10px;
   box-sizing: border-box;
-  padding: 12px 16px;
   text-align: center;
   font-size: 14px;
+  p {
+    margin-bottom: 0;
+  }
+
+  div {
+    width: 30%;
+  }
+}
+
+.meeting-card-body {
+  height: 100%;
 }
 
 .card-body {
-  padding: 24px;
-  font-size: 12px;
+  padding: 15px;
+  font-size: 15px;
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .alert-card {
@@ -45,25 +72,29 @@
   justify-content: center;
   align-items: center;
   width: 30%;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .alert-card-right-side {
   background-color: #f1ece6;
   width: 70%;
   padding: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.alert-card-right-side h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.document-card {
-  background: #f1ece6;
-  border-radius: 20px;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 220px;
-  font-family: Arial, sans-serif;
+.alert-card-right-side p {
+  margin: 2px 0;
+  font-size: 12px;
 }
 
 .icon {
@@ -71,18 +102,140 @@
   height: 25px;
 }
 
-.title-card {
-  background-color:#358F80;
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.card-text-icone {
-  border-top: solid #f6faf95c;
-  padding-top: 10%;
-  padding-bottom: 10%;
+//////////////////////////////////////////////////////
+////////////////// NEW DOCUMENT //////////////////////
+/////////////////////////////////////////////////////
+body:has(#new-document) {
+  position: relative;
+  height: 100vh;
+
+  .document-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
-.card-text {
-  padding-bottom: 10%;
+  .document-card {
+    margin: 25px 15px;
+    background-color: #f1ece6;
+    border-radius: 10px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .document-body {
+    margin: 10px;
+    font-size: 18px;
+    padding: 1rem;
+  }
+
+  .document-card-header {
+    background: #358F80;
+    color: #f1ece6;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    text-align: center;
+  }
+
+  .card-text-icone {
+    border-top: solid #dadcde;
+    padding-top: 2%;
+    padding-bottom: 10%;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .document-card-body {
+    padding: 15px;
+    font-size: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .title-card {
+    background-color:#358F80;
+  }
+
+  .card-text-icone {
+    border-top: solid #f6faf95c;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .card-text {
+    padding-bottom: 10%;
+  }
+
+
+  .new-decision-card {
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .document-affichage {
+    display: flex;
+    align-items: center;
+    border-radius: 13px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 4rem;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .document-icon {
+    background-color: #036666; /* Fond vert foncé */
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem; /* Largeur de l'icône */
+    height: 100%; /* Prend toute la hauteur de la carte */
+  }
+
+  .document-name {
+    color: #333;
+    padding: 1rem;
+    flex-grow: 1;
+  }
+
+  .document-submit-container {
+    display: flex;
+    justify-content: end;
+  }
+
+.meeting-cards {
+  display: flex;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  flex-wrap: nowrap;
 }
 
 .show-card {
