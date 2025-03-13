@@ -5,23 +5,37 @@
     <% @meetings.each do |meeting| %>
       <div class="col-6 col-sm-6 col-md-4">
         <div class="meeting-card">
-          <div class="meeting-card-header">
-            <p><%= meeting.date %></p> <i class="fa-regular fa-clock"></i> 18h
+          <div class="meeting-card-header flex-row justify-content-around align-items-center">
+            <p><%= meeting.date %></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <i class="fa-regular fa-clock"></i>
+              <p>18h</p>
+            </div>
           </div>
-          <div class="text", style = "padding-left: 10px";>
-            <p class="card-title"><%= meeting.title %></p>
-            <p style="font-size: 12px;" class="card-text"><em><%= meeting.description %></em></p>
-          </div>
-          <div class ="card-text-icone">
-            <i class="fa-solid fa-plus" style="font-size: 12px;"></i> <span style="font-size: 12px;">Ajouter des décisions</span>
-
+          <%= link_to meeting_path(meeting) do %>
+            <div class="p-2 meeting-card-body";>
+              <p class="card-title"><%= meeting.title %></p>
+              <p style="font-size: 12px;" class="card-text"><em><%= meeting.description %></em></p>
+            </div>
+          <% end %>
+          <div class ="card-text-icone ps-2">
+            <button type="button" class="modal-btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <i class="fa-solid fa-plus" style="font-size: 12px;"></i> <span style="font-size: 12px;">Ajouter des décisions</span>
+            </button>
             <br>
-            <i class="fa-regular fa-eye" style="font-size: 12px;"></i> <span style="font-size: 12px;"> Accéder aux documents</span>
+            <%= link_to meeting_documents_path(meeting) do %>
+              <i class="fa-regular fa-eye" style="font-size: 12px;"></i> <span style="font-size: 12px;"> Accéder aux documents</span>
+            <% end %>
           </div>
         </div>
+
       </div>
+      <%= render "decisions/form", meeting: meeting, decision: @decision %>
     <% end %>
   </div>
   <h4><strong>Mes notifications :</strong></h4>
 
 </div>
+
+
+<!-- Button trigger modal -->
