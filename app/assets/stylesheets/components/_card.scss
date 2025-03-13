@@ -237,3 +237,25 @@ body:has(#new-document) {
   scrollbar-width: none;
   flex-wrap: nowrap;
 }
+
+.show-card {
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.show-card-header {
+  text-align: center;
+  width: 100%;
+  color: #358F80;
+  border-bottom: 1px solid #358F80;
+}
+
+.separator {
+  border-top: 0.5px solid #bdbdbd;
+}
+
+
+.decision-subtext {
+  color: #358F80;
+  font-size: 12px;
+}
