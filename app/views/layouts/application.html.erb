@@ -19,12 +19,12 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
 
     <div class="page-content">
       <%= render "shared/flashes" %>
-      <%= render "shared/header" %>
+      <%= render "shared/header", title: @title %>
       <%= yield %>
     </div>
+    <%= render "shared/navbar" %>
   </body>
 </html>
