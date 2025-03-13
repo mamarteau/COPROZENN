@@ -5,13 +5,17 @@ class DocumentsController < ApplicationController
 
   def index
     @documents = Document.where(coproperty: current_user.coproperty)
+    @title = "Mes documents"
   end
 
   def show
+    @title = @document.name
+
   end
 
   def new
     @document = Document.new
+    @title = "Ajouter un document"
   end
 
   def create

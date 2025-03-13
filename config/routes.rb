@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :meetings, only: [:index, :new, :create, :show, :update, :edit] do
     resources :decisions, only: [:new, :create]
-    resources :documents, only: [:new, :create]
+    resources :documents, only: [:new, :create, :index, :show]
   end
 
   resources :decisions, only: [:index, :show, :update, :edit] do
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   resources :chatrooms, only: [:index, :show, :new, :create] do
     resources :chat_members, only: [:create]
+    resources :messages, only: [:create]
   end
 
 end
