@@ -10,7 +10,7 @@ class Decision < ApplicationRecord
     closed: 1
   }
 
-  
+
   attr_accessor :document_name, :document_tag
 
 
@@ -21,7 +21,6 @@ class Decision < ApplicationRecord
   def vote_of(user)
     self.votes.find_by(user: user)
   end
-
 
   def for
     self.votes.where(value: true).count
