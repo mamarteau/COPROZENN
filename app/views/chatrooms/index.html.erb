@@ -12,8 +12,12 @@
         <ul>
           <% @chatrooms.each do |chatroom| %>
             <div class="card text-center" style="width: 18rem;">
-              <% other_user = chatroom.users.where.not(id: current_user.id).first %>
-              <li><%= link_to "#{other_user.first_name}", chatroom_path(chatroom), class:"button-card"%></li>
+              <% if !chatroom.name.blank? %>
+                <li><%= link_to "#{chatroom.name}", chatroom_path(chatroom), class:"button-card"%></li>
+              <% else %>
+                <% other_user = chatroom.users.where.not(id: current_user.id).first %>
+                <li><%= link_to "#{other_user.first_name}", chatroom_path(chatroom), class:"button-card"%></li>
+              <% end %>
             </div>
           <% end %>
         </ul>

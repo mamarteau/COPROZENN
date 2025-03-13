@@ -10,6 +10,6 @@ class Message < ApplicationRecord
     broadcast_append_to "chatroom_#{chatroom.id}_messages",
                         partial: "messages/message",
                         target: "messages",
-                        locals: { message: self, user: user  }
+                        locals: { message: self, user: user }
   end
 end

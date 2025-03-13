@@ -22,8 +22,11 @@
     <% end %>
 
     <%= link_to "#", class: "navbar-brand" do %>
-      <div class="icon-container">
+      <div class="icon-container position-relative">
         <%= image_tag "chat_icone.png", class: "navbar-icon" %>
+        <% if !@unread_messages_counter == nil %>
+          <div class="pill"> <%= @unread_messages_counter %></div>
+        <% end %>
       </div>
         <span class="icon-text">Zenmates</span>
     <% end %>
