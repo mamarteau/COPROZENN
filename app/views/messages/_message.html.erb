@@ -5,7 +5,7 @@
     data-message-user-id-value="<%= message.user.id %>">
   <small class="message-info">
     <strong><%= message.user.first_name %></strong>
-    <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+    <i><%= l(message.created_at, format: :short) %></i>
   </small>
   <p class="message-content"><%= message.content %></p>
 </div>
