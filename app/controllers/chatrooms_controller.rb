@@ -10,7 +10,11 @@ class ChatroomsController < ApplicationController
     @chat_member.update(connected_at: Time.now)
     @message = Message.new
     @other_user = @chatroom.users.where.not(id: current_user.id).first
-
+    if !@chatroom.name.blank?
+      @title = @chatroom.name
+    else
+      @title = @other_user.first_name
+    end
   end
 
   def new
