@@ -11,31 +11,24 @@
 @import "components/index";
 @import "pages/index";
 
-.header {
-  background-size: cover;
-  background-position: top center;
-  height: 150px;
-  width: 100%;
-  display: flex;
-  position: relative;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 122px 34px 260px 260px / 0px 0px 100px 100px;
-  justify-content: center;
-}
-
-.logo {
-  position: absolute;
-  left: 50%;
-  top: -1%;
-  transform: translate(-50%);
-  height: 60px;
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
 
 body {
   background-color: #f1ece6 !important;
+}
+
+h5, h4 {
+  color: #036666;
+}
+
+.page-content {
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  // .header {
+  //   flex-shrink: 0;
+  // }
+  .container {
+    flex-grow: 1;
+  }
 }

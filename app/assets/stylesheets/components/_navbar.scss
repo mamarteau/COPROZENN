@@ -5,10 +5,13 @@
   left: 0;
   width: 100%;
   text-align: center;
-  padding: 10px 0;
+  // padding: 10px 0;
   // border-top: 1px solid #358F80 ;
   background-color:#f4f0eb;
   box-shadow: 20px;
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
 .navbar-lewagon .navbar-collapse {

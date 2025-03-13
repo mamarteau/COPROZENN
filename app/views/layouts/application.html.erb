@@ -20,13 +20,11 @@
 
   <body>
     <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <div class="header">
-      <%= image_tag "header.png" %>
-      <div class= "logo">
-        <%= image_tag "logo.png" %>
-      </div>
+
+    <div class="page-content">
+      <%= render "shared/flashes" %>
+      <%= render "shared/header" %>
+      <%= yield %>
     </div>
-    <%= yield %>
   </body>
 </html>
