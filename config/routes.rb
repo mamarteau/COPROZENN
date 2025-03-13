@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :meetings, only: [:index, :new, :create, :show, :update, :edit] do
     resources :decisions, only: [:new, :create]
-    resources :documents, only: [:new, :create]
+    resources :documents, only: [:new, :create, :index, :show]
   end
 
   resources :decisions, only: [:index, :show, :update, :edit] do

@@ -5,4 +5,5 @@ class Meeting < ApplicationRecord
   has_many :decisions
 
   attr_accessor :document_name, :document_tag
+ 
 end
