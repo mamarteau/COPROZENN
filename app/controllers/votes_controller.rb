@@ -7,7 +7,7 @@ class VotesController < ApplicationController
     @vote.decision = @decision
 
     if @vote.save
-      redirect_to meeting_path(@decision.meeting)
+      redirect_to vote_decision_path(@decision)
     else
       render "meetings/show"
     end
