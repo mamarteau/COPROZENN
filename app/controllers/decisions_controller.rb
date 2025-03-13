@@ -1,11 +1,10 @@
 class DecisionsController < ApplicationController
-  before_action :set_decision, only: [:show, :edit, :update, :close]
+  before_action :set_decision, only: [:show, :edit, :update, :close, :vote]
   before_action :authenticate_user!, only: [:create, :update]
 
   def index
     @decisions = Decision.all
   end
-
 
   def show
 
@@ -23,14 +22,16 @@ class DecisionsController < ApplicationController
   @decision.user = current_user
   @decision.meeting = @meeting
   if @decision.save
-    @document = Document.create!(
-      name: document_params[:document_name],
-      tag: document_params[:document_tag],
-      file: document_params[:file],
-      user: current_user,
-      coproperty: current_user.coproperty
-    )
-    @decision.documents << @document
+    if document_params[:file]
+      @document = Document.create!(
+        name: document_params[:document_name],
+        tag: document_params[:document_tag],
+        file: document_params[:file],
+        user: current_user,
+        coproperty: current_user.coproperty
+      )
+      @decision.documents << @document
+    end
     redirect_to decision_path(@decision)
   else
     render :new, status: :unprocessable_entity
@@ -53,6 +54,9 @@ class DecisionsController < ApplicationController
     @decision.closed!
     @decision.update(accepted: @decision.for >= @decision.against)
     redirect_to @decision.meeting
+  end
+
+  def vote
   end
 
   private

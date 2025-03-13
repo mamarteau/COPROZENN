@@ -1,5 +1,5 @@
 <div class="container-fluid" style="padding: 0;">
-<div class="container mt-5 d-flex justify-content-center">
+<div class="container mt-5 justify-content-center">
   <div class="card border-0 rounded shadow-lg p-4" style="max-width: 700px; width: 100%;">
     <h2><%= @meeting.title %></h2>
     <p><%= @meeting.date %></p>
@@ -11,75 +11,27 @@
     <p><%= link_to "Ajouter une decision", new_meeting_decision_path(@meeting), class:"button-card"%></p>
 
     <div class="d-flex flex-column gap-4" data-controller="vote">
-  <% @decisions.each do |decision| %>
-    <div class="card p-3">
-      <div><strong><%= decision.description %></strong></div>
+      <% @decisions.each do |decision| %>
+        <div class="card p-3">
+          <div><strong><%= link_to decision.description, vote_decision_path(decision) %></strong></div>
 
-      <% total_votes = decision.votes.count.to_f %>
-      <% pourcentage_pour = total_votes.zero? ? 0 : ((decision.votes.where(value: true).count / total_votes) * 100).round %>
-      <% pourcentage_contre = total_votes.zero? ? 0 : ((decision.votes.where(value: false).count / total_votes) * 100).round %>
+          <% if decision.closed? %>
+            <div data-vote-target="resultSection" class="mt-3">
+              <% total_pour = decision.for%>
+              <% total_contre = decision.against %>
 
-      <% if decision.already_voted_by?(current_user) || decision.closed? %>
-        <div data-vote-target="voteSection">
-          <div><span></span> <span><%= decision.votes.where(value: true).count %></span> pour</div>
-          <div><span></span> <span><%= decision.votes.where(value: false).count %></span> contre</div>
-        </div>
-
-        <div class="progress mt-2">
-          <div class="progress-bar bg-success" role="progressbar"
-               style="width: <%= pourcentage_pour %>%;"
-               aria-valuenow="<%= pourcentage_pour %>"
-               aria-valuemin="0"
-               aria-valuemax="100">
-            <%= pourcentage_pour %>% Pour
-          </div>
-          <div class="progress-bar bg-danger" role="progressbar"
-               style="width: <%= pourcentage_contre %>%;"
-               aria-valuenow="<%= pourcentage_contre %>"
-               aria-valuemin="0"
-               aria-valuemax="100">
-            <%= pourcentage_contre %>% Contre
-          </div>
-        </div>
-
-        <div class="d-flex gap-2 mt-2">
-          <% if decision.vote_of(current_user).value %>
-            <span class="text-success">✅ Vous avez voté "pour".</span>
-          <% else %>
-            <span class="text-danger">❌ Vous avez voté "contre".</span>
-          <% end %>
-        </div>
-
-      <% else %>
-        <div class="d-flex gap-2 mt-2">
-          <%= link_to "Pour", decision_votes_path(decision, value: true), data: { turbo_method: :post }, class: "btn btn-success" %>
-          <%= link_to "Contre", decision_votes_path(decision, value: false), data: { turbo_method: :post }, class: "btn btn-danger" %>
-        </div>
-      <% end %>
-
-      <% if current_user.status == true && decision.opened? %>
-        <%= link_to "Clôturer le vote", close_decision_path(decision), class: "btn btn-primary", data: { turbo_method: :patch } %>
-      <% end %>
-
-
-      <% if decision.closed? %>
-        <div data-vote-target="resultSection" class="mt-3">
-          <% total_pour = decision.for%>
-          <% total_contre = decision.against %>
-
-          <% if total_pour > total_contre %>
-            <p>La majorité a voté <strong>"Pour"</strong> avec <%= total_pour %> votes.</p>
-          <% elsif total_contre > total_pour %>
-            <p>La majorité a voté <strong>"Contre"</strong> avec <%= total_contre %> votes.</p>
-          <% else %>
-            <p>Il y a une égalité avec <%= total_pour %> votes "Pour" et <%= total_contre %> votes "Contre".</p>
+              <% if total_pour > total_contre %>
+                <p>La majorité a voté <strong>"Pour"</strong> avec <%= total_pour %> votes.</p>
+              <% elsif total_contre > total_pour %>
+                <p>La majorité a voté <strong>"Contre"</strong> avec <%= total_contre %> votes.</p>
+              <% else %>
+                <p>Il y a une égalité avec <%= total_pour %> votes "Pour" et <%= total_contre %> votes "Contre".</p>
+              <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
-
     </div>
-  <% end %>
-</div>
 
 
   </div>
