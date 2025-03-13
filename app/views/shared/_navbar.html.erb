@@ -1,5 +1,12 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-navbar">
   <div class="container-fluid">
+   <%= link_to root_path, class: "navbar-brand" do %>
+      <div class="icon-container">
+        <%= image_tag "home_icone.png", class: "navbar-icon" %>
+      </div>
+        <span class="icon-text">Accueil</span>
+    <% end %>
+
     <%= link_to documents_path, class: "navbar-brand" do %>
       <div class="icon-container">
         <%= image_tag "document_icone.png", class: "navbar-icon" %>
