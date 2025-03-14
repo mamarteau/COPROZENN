@@ -1,13 +1,3 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 puts "Destroying votes, decisions, meetings, documents, messages, chatmembers, chatrooms, coproperties, and users"
 Vote.destroy_all
 Decision.destroy_all
@@ -48,7 +38,18 @@ meeting2 = Meeting.new(title: "Réunion ascenseur", date: Date.current - 17.mont
 meeting2.user = user1
 meeting2.coproperty = coproperty1
 meeting2.save!
+
+meeting3 = Meeting.new(title: "Réunion d'urgence", date: Date.current, description: "Trois points à aborder: local poubelles, conciergerie et tapage nocturne")
+meeting3.user = user1
+meeting3.coproperty = coproperty1
+meeting3.save!
 puts "Done creating meetings"
+
+puts "Creating decisions"
+Decision.new(title: "Local poubelles - Devis 1", description: "Entreprise Lauret", user: user1, meeting: meeting3, status: 0)
+Decision.new(title: "Local poubelles - Devis 2", description: "Entreprise Marta. Total: ", user: user1, meeting: meeting3, status: 0)
+Decision.new(title: "Conciergerie", description: "Changer de concierge", user: user1, meeting: meeting3, status: 0)
+puts "Done creating decisions"
 
 puts "Creating documents"
 document1 = Document.new(name: "Devis travaux", tag: "devis", documentable: meeting2, user: user1, coproperty: coproperty1)
