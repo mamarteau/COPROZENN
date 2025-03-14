@@ -6,7 +6,7 @@
       <div class="col-9 col-sm-12 col-md-12">
         <div class="meeting-card">
           <div class="meeting-card-header flex-row justify-content-around align-items-center">
-            <p><%= meeting.date %></p>
+            <p><i><%= l(meeting.date, format: :long) %></i></p>
             <div class="d-flex justify-content-center align-items-center">
               <i class="fa-regular fa-clock me-2"></i>
               <p>18h</p>
@@ -63,4 +63,3 @@
     </div>
     </div>
   </div>
- 

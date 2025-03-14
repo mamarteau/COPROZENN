@@ -14,7 +14,7 @@
             </div>
           <div class="document-name">
             <p><%= meeting.title %></p>
-            <p style="font-size: 11px"><%= meeting.date %></p>
+            <p style="font-size: 11px"><i><%= l(meeting.date, format: :long) %></i></p>
           </div>
         </div>
       <% end %>
