@@ -14,16 +14,13 @@ Rails.application.routes.draw do
 
   resources :decisions, only: [:show, :update, :edit] do
     member do
-      get :vote
+      post :vote
       patch :open
       patch :close
     end
 
     resources :documents, only: [:new, :create]
     resources :votes, only: [:create]
-      # member do
-      #   patch :close
-      # end
   end
 
   resources :documents, only: [:index, :show, :new, :create]
