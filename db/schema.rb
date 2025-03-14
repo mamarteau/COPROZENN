@@ -47,7 +47,9 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_13_151814) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+
     t.datetime "connected_at", default: "2025-03-14 09:43:51"
+
     t.index ["chatroom_id"], name: "index_chat_members_on_chatroom_id"
     t.index ["user_id"], name: "index_chat_members_on_user_id"
   end

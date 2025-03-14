@@ -1,40 +1,24 @@
-<div class="container mt-5 d-flex justify-content-center flex-column">
-  <div class = "new-decision-card border-0 shadow-lg p-0" style="max-width: 700px; width: 100%;">
-
-  <div class="meeting-card-header">
-    <h2 class="text-center">Créer une decision</h2>
-    </div>
+<div class="container document-container">
+  <div class="document-card">
+   <div class="document-body">
+     <div class="row">
+      <div class="col">
       <%= simple_form_for [@meeting, @decision] do |f| %>
-      <div class="card-body">
-        <div class="row">
-          <div class="col">
           <%= f.input :description, label: "Description" %>
         </div>
-        <div class="form-group mb-3">
+        <div class="decison-card-body">
           <%= f.input :file, as: :file, label: "Document" %>
         </div>
-        <div class="form-group mb-3">
+        <div class="decison-card-body">
           <%= f.input :document_name, label: "Nom document" %>
         </div>
-        <div class="form-group mb-3">
+        <div class="decison-card-body">
           <%= f.input :document_tag, label: "Tag document" %>
         </div>
-
-        <div class="d-flex justify-content">
-          <%= f.submit "Submit", class: "secondary-btn secondary-btn:focus secondary-btn:hover" %>
-        </div>
+         <div class="document-submit-container">
+            <%= f.submit "Submit", class: "secondary-btn secondary-btn:hover" %>
+          </div>
       <% end %>
         </div>
       </div>
-  </div>
-
-  <div class="alert-card">
-    <div class="alert-card-left-side">
-      <%# picto %>
-      <%= image_tag "icons/notification.png", class: "icon"%>
-    </div>
-    <div class="card-body">
-      <p> Réunion le 25/01/26 </p>
-    </div>
-  </div>
 </div>
