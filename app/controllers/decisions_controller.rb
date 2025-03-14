@@ -3,7 +3,8 @@ class DecisionsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update]
 
   def index
-    @decisions = Decision.find(params[:meeting_id])
+    @meeting = Meeting.find(params[:meeting_id])
+    @decisions = @meeting.decisions
   end
 
   def show
@@ -56,7 +57,9 @@ class DecisionsController < ApplicationController
     redirect_to @decision.meeting
   end
 
-  def vote
+  def open
+    @decision.opened!
+    redirect_to @decision.meeting
   end
 
   private
