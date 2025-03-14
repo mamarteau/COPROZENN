@@ -3,6 +3,7 @@ class ChatroomsController < ApplicationController
 
   def index
     @chatrooms = current_user.chatrooms
+    @title = "Zenmates"
   end
 
   def show
