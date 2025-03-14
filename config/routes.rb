@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :decisions, only: [:index, :show, :update, :edit] do
     member do
-      get :vote
+      post :vote
     end
 
     resources :documents, only: [:new, :create]

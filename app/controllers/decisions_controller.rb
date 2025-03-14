@@ -4,11 +4,11 @@ class DecisionsController < ApplicationController
 
   def index
     @decisions = Decision.all
-  
+
   end
 
   def show
-
+    @title = "Décisions créées"
   end
 
  def new
@@ -59,6 +59,11 @@ class DecisionsController < ApplicationController
   end
 
   def vote
+    @vote = Vote.new(value: params[:vote_value] == "for")
+    @vote.user = current_user
+    @vote.decision = @decision
+    @vote.save
+    redirect_to decision_path(@decision)
   end
 
   private

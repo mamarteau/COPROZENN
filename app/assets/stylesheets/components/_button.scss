@@ -51,3 +51,25 @@
   border: none;
   outline: none;
 }
+
+.secondary-btn:active {
+  background-color: #358F80;
+  color: white;
+  transform: translateY(2px); 
+}
+
+.vote-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.vote-buttons .secondary-btn {
+  background-color: #f1ece6;
+  border-color: #358F80;
+}
+
+.vote-buttons .secondary-btn:hover {
+  background-color: #358F80;
+  color: white;
+}

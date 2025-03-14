@@ -1,21 +1,38 @@
-<div class="container-fluid" style="padding: 0;">
-<div class="container mt-5 d-flex justify-content-center">
-  <div class="card border-0 rounded shadow-lg p-4" style="max-width: 700px; width: 100%;">
-    <h1>Décisions</h1>
+<div class="container document-container">
+  <div class="document-card">
+   <div class="document-body">
     <p><strong>Description:</strong> <%= @decision.description %></p>
     <p><strong>Statut:</strong> <%= @decision.status %></p>
 
-    <p><%= link_to "Ajouter un document", new_decision_document_path(@decision), class:"button-card"%></p>
-    <p><%= link_to 'Modifier', edit_decision_path(@decision) %></p>
-    <p><%= link_to 'Retour au meeting', meeting_path(@decision.meeting) %></p>
+    <p><%= link_to "Ajouter un document", new_decision_document_path(@decision), class:"secondary-btn "%></p>
+    <p><%= link_to 'Modifier', edit_decision_path(@decision), class:"secondary-btn "%></p>
+    <p><%= link_to 'Retour au meeting', meeting_path(@decision.meeting), class:"primary-btn " %></p>
   </div>
 
       <% if @decision.documents.any? %>
         <% @decision.documents.each do |document| %>
-         <div class = "card border-0 rounded shadow-lg p-4" style="max-width: 300px;">
+         <div class = "document-body">
           <%= cl_image_tag document.file.key, class:"d-block w-100" %>
         </div>
         <% end %>
       <% end %>
+
+   <div class="document-card">
+  <div class="document-body">
+    <% if @decision.status == "opened" && !@decision.already_voted_by?(current_user) %>
+      <div class="vote-card">
+        <h3>Voter sur cette décision</h3>
+        <div class="vote-buttons d-flex justify-content-start gap-5">
+          <%= button_to 'Pour', vote_decision_path(@decision, vote_value: 'for'), data: { turbo_method: :post }, class: 'secondary-btn' %>
+          <%= button_to 'Contre', vote_decision_path(@decision, vote_value: 'against'), data: { turbo_method: :post }, class: 'secondary-btn' %>
+        </div>
+      </div>
+    <% elsif @decision.status == "closed" %>
+      <div class="vote-card">
+        <h3>La décision est fermée</h3>
+      </div>
+    <% end %>
   </div>
+</div>
+</div>
 </div>

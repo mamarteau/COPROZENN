@@ -40,7 +40,7 @@
       <% @decisions.each_with_index do |decision, index| %>
         <div class=" p-2 d-flex justify-content-between align-items-left flex-column <%= "separator" if index > 0 %>">
           <div class="lien">
-            <%= link_to vote_decision_path(decision), class: "d-flex align-items-center mb-1" do %>
+            <%= link_to decision_path(decision), class: "d-flex align-items-center mb-1" do %>
               <%= image_tag "gavel.png", width: 30, height: 30, class: "me-2" %>
               <p class="mb-0 me-2"><%= decision.description %></p>
             <% end %>
