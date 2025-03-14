@@ -8,20 +8,22 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :meetings, only: [:index, :new, :create, :show, :update, :edit] do
-    resources :decisions, only: [:new, :create]
+    resources :decisions, only: [:new, :create, :index]
     resources :documents, only: [:new, :create, :index, :show]
   end
 
-  resources :decisions, only: [:index, :show, :update, :edit] do
+  resources :decisions, only: [:show, :update, :edit] do
     member do
       get :vote
+      patch :open
+      patch :close
     end
 
     resources :documents, only: [:new, :create]
     resources :votes, only: [:create]
-      member do
-        patch :close
-      end
+      # member do
+      #   patch :close
+      # end
   end
 
   resources :documents, only: [:index, :show, :new, :create]
