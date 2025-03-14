@@ -1,14 +1,13 @@
 class DecisionsController < ApplicationController
-  before_action :set_decision, only: [:show, :edit, :update, :close, :vote]
+  before_action :set_decision, only: [:show, :edit, :update, :close, :vote, :open]
   before_action :authenticate_user!, only: [:create, :update]
 
   def index
-    @decisions = Decision.all
-
+    @meeting = Meeting.find(params[:meeting_id])
+    @decisions = @meeting.decisions
   end
 
   def show
-    @title = "Décisions créées"
   end
 
  def new
@@ -53,8 +52,16 @@ class DecisionsController < ApplicationController
   end
 
   def close
+    result = @decision.votes.where(value: true).count > @decision.votes.where(value: false).count
+    @decision.accepted = result
     @decision.closed!
-    @decision.update(accepted: @decision.for >= @decision.against)
+
+    # @decision.update(accepted: @decision.for >= @decision.against)
+    redirect_to @decision.meeting
+  end
+
+  def open
+    @decision.opened!
     redirect_to @decision.meeting
   end
 

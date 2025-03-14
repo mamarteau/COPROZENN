@@ -1,15 +1,20 @@
-<h1>Liste des décisions</h1>
+<h1>A vos votes!</h1>
 <div class="cards-container">
   <div class="row">
-    <div class="col">
-      <% @decisions.each do |decision| %>
+    <% @decisions.each do |decision| %>
+      <div class="col-md-4 mb-4">
         <div class="card">
-          <h1 class="card-title"><%= decision.description %></h1>
-          <p class="card-body"><%= decision.status %></p>
-          <%= link_to 'Modifier', edit_decision_path(decision) %> | <%= link_to 'Decision details', decision_path(decision) %>
+          <div class="card-body">
+            <h5 class="card-title"><%= decision.description %></h5>
+            <p class="card-text">Statut: <%= decision.status %></p>
+
+            <div class="d-flex gap-2">
+              <%= link_to "Pour", decision_votes_path(@decision, value: true), data: { turbo_method: :post }, class: "btn btn-success" %>
+              <%= link_to "Contre", decision_votes_path(@decision, value: false), data: { turbo_method: :post }, class: "btn btn-danger" %>
+            </div>
+          </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
-
