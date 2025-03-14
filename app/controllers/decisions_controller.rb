@@ -56,7 +56,8 @@ class DecisionsController < ApplicationController
     redirect_to @decision.meeting
   end
 
-  def vote
+  def open_vote
+    
   end
 
   private
