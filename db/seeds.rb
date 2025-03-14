@@ -8,11 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-puts "Destroying votes, decisions, meetings, documents, chatmembers, chatrooms, coproperties, and users"
+puts "Destroying votes, decisions, meetings, documents, messages, chatmembers, chatrooms, coproperties, and users"
 Vote.destroy_all
 Decision.destroy_all
 Meeting.destroy_all
 Document.destroy_all
+Message.destroy_all
 ChatMember.destroy_all
 Chatroom.destroy_all
 Coproperty.destroy_all
@@ -72,6 +73,8 @@ chatroom1 = Chatroom.new(coproperty: coproperty1)
 chatroom1.save!
 chatroom2 = Chatroom.new(coproperty: coproperty1)
 chatroom2.save!
+chatroom3 = Chatroom.new(coproperty: coproperty1, name: "Copropriété")
+chatroom3.save!
 puts "Done creating chatrooms"
 
 puts "Creating chatmembers"
@@ -83,6 +86,13 @@ chatmember3 = ChatMember.new(user: user3, chatroom: chatroom2)
 chatmember3.save!
 chatmember4 = ChatMember.new(user: user1, chatroom: chatroom2)
 chatmember4.save!
+
+chatmember5 = ChatMember.new(user: user1, chatroom: chatroom3)
+chatmember5.save!
+chatmember6 = ChatMember.new(user: user2, chatroom: chatroom3)
+chatmember6.save!
+chatmember7 = ChatMember.new(user: user3, chatroom: chatroom3)
+chatmember7.save!
 puts "Done creating chatmembers"
 
 puts "Seed done"

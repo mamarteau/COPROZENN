@@ -1,12 +1,23 @@
-<div class="container mt-5 d-flex justify-content-center">
-  <div class = "card border-0 rounded shadow-lg p-4" style="max-width: 700px; width: 100%;">
-    <% @meetings.each do |meeting| %>
-      <p><%= meeting.title %></p>
-      <p><%= meeting.date %></p>
-      <p><%= meeting.link %></p>
-      <p><%= meeting.description %></p>
-    <% end %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <%= link_to "Ajouter une réunion", new_meeting_path, class:"secondary-btn float-end" %>
+    </div>
+  </div>
 
-  <%= link_to "Create a meeting", new_meeting_path, class:"button-card"%>
+  <div class="row justify-content-evenly g-3 mt-3">
+    <% @meetings.each do |meeting| %>
+      <%= link_to meeting_path(meeting), class: "text-decoration-none" do %>
+        <div class="document-affichage">
+          <div class="document-icon">
+            <i class="fa-regular fa-handshake"></i>
+            </div>
+          <div class="document-name">
+            <p><%= meeting.title %></p>
+            <p style="font-size: 11px"><i><%= l(meeting.date, format: :long) %></i></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>

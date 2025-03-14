@@ -21,9 +21,12 @@
         <span class="icon-text">Réunions</span>
     <% end %>
 
-    <%= link_to "#", class: "navbar-brand" do %>
-      <div class="icon-container">
-        <%= image_tag "chat_icone.png", class: "navbar-icon" %>
+    <%= link_to chatrooms_path, class: "navbar-brand" do %>
+      <div class="icon-container position-relative">
+        <i class="fa-regular fa-comments navbar-icon"></i>
+        <% if !@unread_messages_counter == nil %>
+          <div class="pill"> <%= @unread_messages_counter %></div>
+        <% end %>
       </div>
         <span class="icon-text">Zenmates</span>
     <% end %>

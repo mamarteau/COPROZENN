@@ -3,6 +3,7 @@ class MeetingsController < ApplicationController
 
   def index
     @meetings = Meeting.all
+    @title = "Mes meetings"
   end
 
   def show

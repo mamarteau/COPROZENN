@@ -35,6 +35,20 @@
 
 .icon-container {
   text-align: center;
+  .pill {
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    color: #f1ece6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #036666;
+    font-size: 0.8em;
+  }
 }
 
 .navbar-brand {
