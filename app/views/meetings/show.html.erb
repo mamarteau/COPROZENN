@@ -36,32 +36,10 @@
     <div class="show-card-header mb-3">
       <h4 class=""><strong>Décisions</strong></h4>
     </div>
-    <div class="px-3">
-      <% @decisions.each_with_index do |decision, index| %>
-        <div class=" p-2 d-flex justify-content-between align-items-left flex-column <%= "separator" if index > 0 %>">
-          <div class="lien">
-            <%= link_to vote_decision_path(decision), class: "d-flex align-items-center mb-1" do %>
-              <%= image_tag "gavel.png", width: 30, height: 30, class: "me-2" %>
-              <p class="mb-0 me-2"><%= decision.description %></p>
-            <% end %>
-
-          </div>
-          <% if decision.closed? %>
-            <div data-vote-target="resultSection" class="">
-              <% total_pour = decision.for %>
-              <% total_contre = decision.against %>
-
-              <% if total_pour > total_contre %>
-                <p class="mb-0 decision-subtext">La majorité a voté <strong>"Pour"</strong> avec <%= total_pour %> votes.</p>
-              <% elsif total_contre > total_pour %>
-                <p class="mb-0 decision-subtext">La majorité a voté <strong>"Contre"</strong> avec <%= total_contre %> votes.</p>
-              <% else %>
-                <p class="mb-0 decision-subtext">Il y a une égalité avec <%= total_pour %> votes "Pour" et <%= total_contre %> votes "Contre".</p>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-        <% end %>
+    <div class="px-3 d-flex flex-column gap-2">
+      <% @decisions.each do |decision| %>
+        <%= render "meetings/decision", decision: decision %>
+      <% end %>
 
       <div class="d-flex justify-content-end mt-3">
         <p><%= link_to "Ajouter", new_meeting_decision_path(@meeting), class:"show-btn"%></p>

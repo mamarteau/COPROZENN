@@ -1,0 +1,39 @@
+<div class="p-2 d-flex justify-content-between align-items-left flex-column separator">
+
+  <div class="d-flex align-items-center">
+    <div class="flex-grow-1 d-flex align-items-center">
+      <%= image_tag "gavel.png", width: 30, height: 30, class: "me-2" %>
+      <p class="mb-0 me-2"><%= decision.description %></p>
+    </div>
+    <% if current_user.status && decision.pending? %>
+      <%= link_to "Ouvrir", open_decision_path(decision),
+        class: "btn secondary-btn btn-xs",
+        data: { turbo_method: :patch } %>
+    <% elsif current_user.status && decision.opened? %>
+      <%= link_to "Fermer", open_decision_path(decision),
+        class: "btn secondary-btn btn-xs",
+        data: { turbo_method: :patch } %>
+    <% end %>
+  </div>
+
+  <% if decision.opened? %>
+    <div class="text-center">
+      <%= link_to "Voter", decision_path(decision), class: "btn primary-btn btn-xs" %>
+    </div>
+  <% end %>
+
+  <% if decision.closed? %>
+    <div data-vote-target="resultSection" class="">
+      <% total_pour = decision.for %>
+      <% total_contre = decision.against %>
+
+      <% if total_pour > total_contre %>
+        <p class="mb-0 decision-subtext">La majorité a voté <strong>"Pour"</strong> avec <%= total_pour %> votes.</p>
+      <% elsif total_contre > total_pour %>
+        <p class="mb-0 decision-subtext">La majorité a voté <strong>"Contre"</strong> avec <%= total_contre %> votes.</p>
+      <% else %>
+        <p class="mb-0 decision-subtext">Il y a une égalité avec <%= total_pour %> votes "Pour" et <%= total_contre %> votes "Contre".</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

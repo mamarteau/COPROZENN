@@ -6,8 +6,9 @@ class Decision < ApplicationRecord
 
 
   enum :status, {
-    opened: 0,
-    closed: 1
+    pending: 0,
+    opened: 1,
+    closed: 2
   }
 
 

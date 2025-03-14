@@ -3,12 +3,10 @@ class DecisionsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :update]
 
   def index
-    @decisions = Decision.all
-  
+    @decisions = Decision.find(params[:meeting_id])
   end
 
   def show
-
   end
 
  def new
