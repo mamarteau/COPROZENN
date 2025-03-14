@@ -10,7 +10,7 @@
         class: "btn secondary-btn btn-xs",
         data: { turbo_method: :patch } %>
     <% elsif current_user.status && decision.opened? %>
-      <%= link_to "Fermer", open_decision_path(decision),
+      <%= link_to "Fermer", close_decision_path(decision),
         class: "btn secondary-btn btn-xs",
         data: { turbo_method: :patch } %>
     <% end %>
