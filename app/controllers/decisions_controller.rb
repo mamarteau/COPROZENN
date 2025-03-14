@@ -4,6 +4,7 @@ class DecisionsController < ApplicationController
 
   def index
     @decisions = Decision.all
+  
   end
 
   def show
@@ -14,6 +15,7 @@ class DecisionsController < ApplicationController
   @meeting = Meeting.find(params[:meeting_id])
   @decision = Decision.new
   @document = Document.new
+  @title = "Créer une décision"
  end
 
  def create
