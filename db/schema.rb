@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_13_151814) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_14_134724) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,9 +47,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_13_151814) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
-    t.datetime "connected_at", default: "2025-03-14 09:43:51"
-
+    t.datetime "connected_at", default: "2025-03-13 14:18:08"
     t.index ["chatroom_id"], name: "index_chat_members_on_chatroom_id"
     t.index ["user_id"], name: "index_chat_members_on_user_id"
   end
@@ -77,6 +75,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_13_151814) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "accepted", default: false
+    t.string "title"
     t.index ["meeting_id"], name: "index_decisions_on_meeting_id"
     t.index ["user_id"], name: "index_decisions_on_user_id"
   end

@@ -4,7 +4,7 @@ class DecisionsController < ApplicationController
 
   def index
     @decisions = Decision.all
-  
+
   end
 
   def show
@@ -58,7 +58,9 @@ class DecisionsController < ApplicationController
     redirect_to @decision.meeting
   end
 
-  def vote
+  def open
+    @decision.opened!
+    redirect_to @decision.meeting
   end
 
   private
