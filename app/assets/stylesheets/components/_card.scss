@@ -223,14 +223,14 @@ body:has(#new-document) {
   }
 
   .document-icon {
-    background-color: #036666; /* Fond vert foncé */
+    background-color: #036666;
     color: #fff;
     padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 4rem; /* Largeur de l'icône */
-    height: 100%; /* Prend toute la hauteur de la carte */
+    width: 4rem;
+    height: 100%;
   }
 
   .document-name {
@@ -271,4 +271,8 @@ body:has(#new-document) {
 .decision-subtext {
   color: #358F80;
   font-size: 12px;
+}
+
+.document-name p {
+  margin: 0; 
 }
