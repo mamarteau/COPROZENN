@@ -29,7 +29,8 @@ user3.save!
 puts "Done creating users"
 
 puts "Creating meetings"
-meeting1 = Meeting.new(title: "AG 2024", date: Date.current - 5.months, description: "AG 2024 pour ravalement de façade")
+
+meeting1 = Meeting.new(title: "Réunion d'urgence", date: Date.current, description: "Trois points à aborder: local poubelles, conciergerie et tapage nocturne")
 meeting1.user = user1
 meeting1.coproperty = coproperty1
 meeting1.save!
@@ -39,16 +40,20 @@ meeting2.user = user1
 meeting2.coproperty = coproperty1
 meeting2.save!
 
-meeting3 = Meeting.new(title: "Réunion d'urgence", date: Date.current, description: "Trois points à aborder: local poubelles, conciergerie et tapage nocturne")
+meeting3 = Meeting.new(title: "AG 2024", date: Date.current - 5.months, description: "AG 2024 pour ravalement de façade")
 meeting3.user = user1
 meeting3.coproperty = coproperty1
 meeting3.save!
+
 puts "Done creating meetings"
 
 puts "Creating decisions"
-Decision.new(title: "Local poubelles - Devis 1", description: "Entreprise Lauret", user: user1, meeting: meeting3, status: 0)
-Decision.new(title: "Local poubelles - Devis 2", description: "Entreprise Marta. Total: ", user: user1, meeting: meeting3, status: 0)
-Decision.new(title: "Conciergerie", description: "Changer de concierge", user: user1, meeting: meeting3, status: 0)
+decision1 = Decision.new(title: "Local poubelles - Devis 1", description: "Entreprise Lauret. Total: 15000", user: user1, meeting: meeting1, status: 0)
+decision1.save!
+decision2 = Decision.new(title: "Local poubelles - Devis 2", description: "Entreprise Marta. Total: 16000", user: user1, meeting: meeting1, status: 0)
+decision2.save!
+decision3 = Decision.new(title: "Conciergerie", description: "Changer de concierge", user: user1, meeting: meeting1, status: 0)
+decision3.save!
 puts "Done creating decisions"
 
 puts "Creating documents"
@@ -95,5 +100,16 @@ chatmember6.save!
 chatmember7 = ChatMember.new(user: user3, chatroom: chatroom3)
 chatmember7.save!
 puts "Done creating chatmembers"
+
+puts "Creating messages"
+message1 = Message.new(chatroom: chatroom1,content: "J'ai bien déposé les clés", chat_member: chatmember2)
+message1.save!
+message2 = Message.new(chatroom: chatroom1,content: "Pense à ajouter une décision à la réunion", chat_member: chatmember1)
+message2.save!
+message3 = Message.new(chatroom: chatroom1,content: "N'oublie pas la fête des voisins!", chat_member: chatmember2)
+message3.save!
+message4 = Message.new(chatroom: chatroom1,content: "Il y a encore des rats dans le local poubelles", chat_member: chatmember1)
+message4.save!
+puts "Done creating messages"
 
 puts "Seed done"
