@@ -3,7 +3,7 @@
         <h4 class=""><strong><%= @meeting.title %></strong></h4>
       </div>
       <div class="px-3">
-        <p><%= @meeting.date %></p>
+        <p><i><%= l(@meeting.date, format: :long) %></i></p>
         <p><%= @meeting.link %></p>
         <p><%= @meeting.description %></p>
       </div>
