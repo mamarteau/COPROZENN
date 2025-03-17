@@ -1,51 +1,5 @@
-<div class="container mt-5 justify-content-center">
-      <div class="show-card-header mb-3">
-        <h4 class=""><strong><%= @meeting.title %></strong></h4>
-      </div>
-      <div class="px-3">
-        <p><i><%= l(@meeting.date, format: :long) %></i></p>
-        <p><%= @meeting.link %></p>
-        <p><%= @meeting.description %></p>
-      </div>
-
-  <div class="show-card mt-5 py-3 mb-3">
-    <div class="show-card-header mb-3">
-      <h4 class=""><strong>Documents</strong></h4>
-  </div>
-  <div class="px-3">
-    <% if @meeting.documents.any? %>
-      <% @meeting.documents.each do |document| %>
-      <div class=" p-2 d-flex justify-content-between align-items-left flex-column">
-        <div class="lien">
-          <%= link_to document_path(document), class: "d-flex align-items-center mb-1"  do %>
-            <%= image_tag "document_icone.png", width: 30, height: 30, class: "me-2" %>
-            <p class="mb-0 me-2"><%= document.name %></p>
-          <% end %>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-      <div class="d-flex justify-content-end mt-3">
-        <p><%= link_to "Ajouter", new_meeting_document_path(@meeting), class:"show-btn"%></p>
-      </div>
-  </div>
-  </div>
-
-  <div class="d-flex flex-column gap-4" data-controller="vote">
-  <div class="show-card py-3 mb-3">
-    <div class="show-card-header mb-3">
-      <h4 class=""><strong>Décisions</strong></h4>
-    </div>
-    <div class="px-3 d-flex flex-column gap-2">
-      <% @decisions.each do |decision| %>
-        <%= render "meetings/decision", decision: decision %>
-      <% end %>
-
-      <div class="d-flex justify-content-end mt-3">
-        <p><%= link_to "Ajouter", new_meeting_decision_path(@meeting), class:"show-btn"%></p>
-      </div>
-  </div>
-</div>
-
-</div>
+<%= turbo_stream_from dom_id(@meeting) %>
+<div data-controller="meeting"
+  data-meeting-is-admin-value="<%= current_user.status %>">
+  <%= render "meetings/show", meeting: @meeting %>
 </div>

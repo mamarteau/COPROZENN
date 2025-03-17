@@ -57,31 +57,29 @@ class DecisionsController < ApplicationController
     @decision.closed!
 
     # @decision.update(accepted: @decision.for >= @decision.against)
-    redirect_to @decision.meeting
+    # redirect_to @decision.meeting
   end
 
   def open
     @decision.opened!
-    redirect_to @decision.meeting
+    # render :head
+    # redirect_to @decision.meeting
   end
 
   def vote
     @vote = Vote.new(value: params[:vote_value] == "for")
     @vote.user = current_user
     @vote.decision = @decision
-    flash.clear
-      if @vote.save
-        flash[:notice] = "Votre vote a été pris en compte."
-      else
-        flash[:alert] = "Une erreur s'est produite, veuillez réessayer."
-      end
-    redirect_to decision_path(@decision)
-  end
+    @vote.save
+    respond_to do |format|
+      format.turbo_stream
+    end
+   end
 
   private
 
   def decision_params
-    params.require(:decision).permit(:description)
+    params.require(:decision).permit(:title, :description)
   end
 
    def document_params

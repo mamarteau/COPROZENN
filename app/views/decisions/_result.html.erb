@@ -1,0 +1,14 @@
+<div data-vote-target="resultSection"
+  class=""
+  id="<%= dom_id(decision) %>_result">
+  <% total_pour = decision.for %>
+  <% total_contre = decision.against %>
+
+  <% if total_pour > total_contre %>
+    <p class="mb-0 decision-subtext">La majorité a voté <strong>"Pour"</strong> avec <%= total_pour %> votes.</p>
+  <% elsif total_contre > total_pour %>
+    <p class="mb-0 decision-subtext">La majorité a voté <strong>"Contre"</strong> avec <%= total_contre %> votes.</p>
+  <% else %>
+    <p class="mb-0 decision-subtext">Il y a une égalité avec <%= total_pour %> votes "Pour" et <%= total_contre %> votes "Contre".</p>
+  <% end %>
+</div>
