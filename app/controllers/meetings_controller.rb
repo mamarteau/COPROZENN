@@ -1,9 +1,15 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :update, :edit]
+  before_action :set_meeting, only: [:show, :update, :edit, :show_pdf]
 
   def index
     @meetings = Meeting.all
     @title = "Mes réunions"
+  end
+
+  def show_pdf
+    render pdf: "compte_rendu_#{@meeting.title.gsub(" ", "_")}",
+           template: "meetings/show_pdf",
+           layout: "pdf"
   end
 
   def show

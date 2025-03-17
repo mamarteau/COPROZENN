@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :meetings, only: [:index, :new, :create, :show, :update, :edit] do
     resources :decisions, only: [:new, :create, :index]
     resources :documents, only: [:new, :create, :index, :show]
+    member do
+      get :show_pdf
+    end
   end
 
   resources :decisions, only: [:show, :update, :edit] do
