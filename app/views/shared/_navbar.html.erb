@@ -3,28 +3,28 @@
 
 <%= link_to root_path, class: "navbar-icon #{'active' if current_page?(root_path)}" do %>
   <div class="icon-container">
-    <i class="fa-solid fa-house"></i> 
+    <i class="fa-solid fa-house" style= "color: #adb5bd"></i>
   </div>
   <span class="icon-text">Acceuil</span>
 <% end %>
 
 <%= link_to documents_path, class: "navbar-icon #{'active' if current_page?(documents_path)}" do %>
   <div class="icon-container">
-    <i class="fa-regular fa-file"></i>
+    <i class="fa-regular fa-file" style= "color:#adb5bd"></i>
   </div>
   <span class="icon-text">Documents</span>
 <% end %>
 
 <%= link_to meetings_path, class: "navbar-icon #{'active' if current_page?(meetings_path)}" do %>
   <div class="icon-container">
-    <i class="fa-regular fa-calendar"></i>
+    <i class="fa-regular fa-calendar" style= "color:#adb5bd"></i>
   </div>
   <span class="icon-text">Réunions</span>
 <% end %>
 
 <%= link_to chatrooms_path, class: "navbar-icon #{'active' if current_page?(chatrooms_path)}" do %>
   <div class="icon-container position-relative">
-    <i class="fa-regular fa-comments"></i>
+    <i class="fa-regular fa-comments" style= "color:#adb5bd"></i>
     <% if @unread_messages_counter.present? %>
       <div class="pill"><%= @unread_messages_counter %></div>
     <% end %>
@@ -33,8 +33,8 @@
 <% end %>
 
 <%= link_to "#", class: "navbar-icon" do %>
-  <div class="icon-container">
-    <i class="fa-regular fa-user"></i>
+  <div class="icon-container" >
+    <i class="fa-regular fa-user" style= "color:#adb5bd"></i>
   </div>
   <span class="icon-text">Profil</span>
 <% end %>

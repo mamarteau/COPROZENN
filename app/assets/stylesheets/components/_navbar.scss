@@ -38,6 +38,8 @@
 
 .icon-container {
   text-align: center;
+  // opacity: 0.5;
+
   .pill {
     height: 1.3rem;
     width: 1.3rem;
@@ -49,8 +51,7 @@
     position: absolute;
     top: -5px;
     right: -5px;
-    background-color:#9F2B68;
-    ;
+    background-color:#023e8a;
     font-size: 0.8em;
   }
 }
@@ -82,6 +83,7 @@
 }
 
 .navbar-icon.active i {
-  color: #9F2B68;
+  opacity: 1;
+  color: #023e8a !important;
   text-align: center;
 }
