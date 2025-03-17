@@ -57,12 +57,13 @@ class DecisionsController < ApplicationController
     @decision.closed!
 
     # @decision.update(accepted: @decision.for >= @decision.against)
-    redirect_to @decision.meeting
+    # redirect_to @decision.meeting
   end
 
   def open
     @decision.opened!
-    redirect_to @decision.meeting
+    # render :head
+    # redirect_to @decision.meeting
   end
 
   def vote
@@ -70,13 +71,15 @@ class DecisionsController < ApplicationController
     @vote.user = current_user
     @vote.decision = @decision
     @vote.save
-    redirect_to decision_path(@decision)
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   private
 
   def decision_params
-    params.require(:decision).permit(:description)
+    params.require(:decision).permit(:title, :description)
   end
 
    def document_params
