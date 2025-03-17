@@ -9,6 +9,11 @@ class Meeting < ApplicationRecord
 
   attr_accessor :document_name, :document_tag
 
+  def over?
+    # decisions.all? { |decision| decision.closed? }
+    decisions.present? && decisions.all?(&:closed?)
+  end
+
   private
 
   def broadcast_vote

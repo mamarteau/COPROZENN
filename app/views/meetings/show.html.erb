@@ -1,5 +1,15 @@
-<%= turbo_stream_from dom_id(@meeting) %>
-<div data-controller="meeting"
-  data-meeting-is-admin-value="<%= current_user.status %>">
-  <%= render "meetings/show", meeting: @meeting %>
-</div>
+
+<% if @meeting.over? %>
+
+  <%= render "meetings/over_show", meeting: @meeting %>
+
+<% else %>
+
+  <%= turbo_stream_from dom_id(@meeting) %>
+
+  <div data-controller="meeting"
+    data-meeting-is-admin-value="<%= current_user.status %>">
+    <%= render "meetings/show", meeting: @meeting %>
+  </div>
+
+<% end %>
