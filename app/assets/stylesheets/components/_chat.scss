@@ -40,15 +40,6 @@
     width: fit-content;
   }
 
-  .message-content {
-    border-radius: 1rem;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    max-width: 70%;
-    width: fit-content;
-    word-wrap: break-word;
-  }
-
   .message.sent .message-content {
     align-self: flex-end;
     background: #036666;
@@ -59,4 +50,32 @@
     align-self: flex-start;
     background: $gray-200;
   }
+
+  .message-content {
+    border-radius: 1rem;
+    padding: 0.5rem;
+    // max-width: 70%;
+    width: fit-content;
+    word-wrap: break-word;
+    margin-bottom: 2px !important;
+  }
+}
+
+.messages-form {
+  position: fixed;
+  bottom: 67px;
+  width: 100%;
+  left: 0;
+}
+
+.message-text {
+  height: 50px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.message-btn {
+  border-radius: 0px !important;
+  border-top-right-radius: 20px !important;
+  border-bottom-right-radius: 20px !important;
 }
