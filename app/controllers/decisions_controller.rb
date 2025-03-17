@@ -69,7 +69,12 @@ class DecisionsController < ApplicationController
     @vote = Vote.new(value: params[:vote_value] == "for")
     @vote.user = current_user
     @vote.decision = @decision
-    @vote.save
+    flash.clear
+      if @vote.save
+        flash[:notice] = "Votre vote a été pris en compte."
+      else
+        flash[:alert] = "Une erreur s'est produite, veuillez réessayer."
+      end
     redirect_to decision_path(@decision)
   end
 
