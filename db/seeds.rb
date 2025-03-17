@@ -16,16 +16,59 @@ puts "Done creating coproperty"
 
 puts "Creating users"
 user1 = User.new(first_name: "Irina", last_name: "De Santos", email: "irina@gmail.com", password: "testdemdp", status: true, square_meters: 240)
+user1.photo.attach(
+  io: File.open(Rails.root.join("app/assets/images/Irina.png")),
+  filename: 'anyname.jpg',
+  content_type: 'image/jpg'
+)
 user1.coproperty = coproperty1
 user1.save!
 
 user2 = User.new(first_name: "Glenda", last_name: "John", email: "glenda@gmail.com", password: "testdemdp", status: false, square_meters: 120)
+user2.photo.attach(
+  io: File.open(Rails.root.join("app/assets/images/Glenda.png")),
+  filename: 'anyname.jpg',
+  content_type: 'image/jpg'
+)
 user2.coproperty = coproperty1
 user2.save!
 
 user3 = User.new(first_name: "Jean", last_name: "Lefevre", email: "jean@gmail.com", password: "testdemdp", status: false, square_meters: 100)
+user3.photo.attach(
+  io: File.open(Rails.root.join("app/assets/images/Jean.png")),
+  filename: 'anyname.jpg',
+  content_type: 'image/jpg'
+)
 user3.coproperty = coproperty1
 user3.save!
+
+user4 = User.new(first_name: "Antoine", last_name: "Jeanjean", email: "antoine@gmail.com", password: "testdemdp", status: false, square_meters: 70)
+user4.photo.attach(
+  io: File.open(Rails.root.join("app/assets/images/Antoine.png")),
+  filename: 'anyname.jpg',
+  content_type: 'image/jpg'
+)
+user4.coproperty = coproperty1
+user4.save!
+
+user5 = User.new(first_name: "Brigitte & Manu", last_name: "De Guerin", email: "brinu@gmail.com", password: "testdemdp", status: false, square_meters: 270)
+user5.photo.attach(
+  io: File.open(Rails.root.join("app/assets/images/Brigitte&Manu.png")),
+  filename: 'anyname.jpg',
+  content_type: 'image/jpg'
+)
+user5.coproperty = coproperty1
+user5.save!
+
+user6 = User.new(first_name: "Claire", last_name: "Joly", email: "claire@gmail.com", password: "testdemdp", status: false, square_meters: 270)
+user6.photo.attach(
+  io: File.open(Rails.root.join("app/assets/images/Claire.png")),
+  filename: 'anyname.jpg',
+  content_type: 'image/jpg'
+)
+user6.coproperty = coproperty1
+user6.save!
+
 puts "Done creating users"
 
 puts "Creating meetings"
@@ -81,6 +124,12 @@ chatroom2 = Chatroom.new(coproperty: coproperty1)
 chatroom2.save!
 chatroom3 = Chatroom.new(coproperty: coproperty1, name: "Copropriété")
 chatroom3.save!
+chatroom4 = Chatroom.new(coproperty: coproperty1)
+chatroom4.save!
+chatroom5 = Chatroom.new(coproperty: coproperty1)
+chatroom5.save!
+chatroom6 = Chatroom.new(coproperty: coproperty1)
+chatroom6.save!
 puts "Done creating chatrooms"
 
 puts "Creating chatmembers"
@@ -99,6 +148,28 @@ chatmember6 = ChatMember.new(user: user2, chatroom: chatroom3)
 chatmember6.save!
 chatmember7 = ChatMember.new(user: user3, chatroom: chatroom3)
 chatmember7.save!
+chatmember8 = ChatMember.new(user: user4, chatroom: chatroom3)
+chatmember8.save!
+chatmember9 = ChatMember.new(user: user5, chatroom: chatroom3)
+chatmember9.save!
+chatmember10 = ChatMember.new(user: user6, chatroom: chatroom3)
+chatmember10.save!
+
+chatmember11 = ChatMember.new(user: user1, chatroom: chatroom4)
+chatmember11.save!
+chatmember12 = ChatMember.new(user: user4, chatroom: chatroom4)
+chatmember12.save!
+
+chatmember13 = ChatMember.new(user: user1, chatroom: chatroom5)
+chatmember13.save!
+chatmember14 = ChatMember.new(user: user5, chatroom: chatroom5)
+chatmember14.save!
+
+chatmember15 = ChatMember.new(user: user1, chatroom: chatroom6)
+chatmember15.save!
+chatmember15 = ChatMember.new(user: user6, chatroom: chatroom6)
+chatmember15.save!
+
 puts "Done creating chatmembers"
 
 puts "Creating messages"
