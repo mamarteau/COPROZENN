@@ -52,7 +52,3 @@ class Decision < ApplicationRecord
                         locals: { meeting: self.meeting }
   end
 end
-
-
-# @decision.already_voted_by?(current_user)
-# @decision.vote_of(curernt_user)
