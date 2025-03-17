@@ -279,3 +279,14 @@ body:has(#new-document) {
 .document-name p {
   margin: 0;
 }
+
+.chat-card {
+  display: flex;
+  align-items: center;
+  border-bottom: solid #f8f9fa;
+  overflow: hidden;
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 4rem;
+  transition: box-shadow 0.3s ease-in-out;
+}

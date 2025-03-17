@@ -11,16 +11,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "pages/chat";
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+
 
 
 body {
   background-color: #f1ece6 !important;
 }
 
-h5, h4 {
+h4 {
   color: #036666;
 }
+h5 {
+  color: #9f2b68
+}
+
 
 .page-content {
   height: calc(100vh - 80px);

@@ -10,4 +10,5 @@ class User < ApplicationRecord
   belongs_to :coproperty
   has_many :chat_members
   has_many :chatrooms, through: :chat_members
+  has_one_attached :photo
 end
