@@ -17,8 +17,24 @@
         <% end %>
       <% end %>
 
+
    <div class="document-card">
   <div class="document-body">
+  <% flash.each do |key, message| %>
+  <div class="alert alert-<%= key == "notice" ? "success" : key == "alert" ? "danger" : "warning" %>">
+    <%= message %>
+  </div>
+<% end %>
+
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+      <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="alert alert-danger">
+      <%= flash[:alert] %>
+      </div>
+    <% end %>
     <% if @decision.status == "opened" && !@decision.already_voted_by?(current_user) %>
       <div class="vote-card">
         <h3>Voter sur cette décision</h3>

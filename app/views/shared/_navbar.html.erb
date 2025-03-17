@@ -1,42 +1,44 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-navbar">
   <div class="container-fluid">
-   <%= link_to root_path, class: "navbar-brand" do %>
+
+    <%= link_to root_path, class: "navbar-brand #{'active' if current_page?(root_path)}" do %>
       <div class="icon-container">
-        <%= image_tag "home_icone.png", class: "navbar-icon" %>
+        <%= image_tag "home_icone.png", class: "navbar-icon #{'active' if current_page?(root_path)}" %>
       </div>
-        <span class="icon-text">Accueil</span>
+      <span class="icon-text">Accueil</span>
     <% end %>
 
-    <%= link_to documents_path, class: "navbar-brand" do %>
+    <%= link_to documents_path, class: "navbar-brand #{'active' if current_page?(documents_path)}" do %>
       <div class="icon-container">
-        <%= image_tag "document_icone.png", class: "navbar-icon" %>
+        <%= image_tag "document_icone.png", class: "navbar-icon #{'active' if current_page?(documents_path)}" %>
       </div>
-        <span class="icon-text">Documents</span>
+      <span class="icon-text">Documents</span>
     <% end %>
 
-     <%= link_to meetings_path, class: "navbar-brand" do %>
+    <%= link_to meetings_path, class: "navbar-brand #{'active' if current_page?(meetings_path)}" do %>
       <div class="icon-container">
-        <%= image_tag "meeting_icone.png", class: "navbar-icon" %>
+        <%= image_tag "meeting_icone.png", class: "navbar-icon #{'active' if current_page?(meetings_path)}" %>
       </div>
-        <span class="icon-text">Réunions</span>
+      <span class="icon-text">Réunions</span>
     <% end %>
 
-    <%= link_to chatrooms_path, class: "navbar-brand" do %>
+    <%= link_to chatrooms_path, class: "navbar-brand #{'active' if current_page?(chatrooms_path)}" do %>
       <div class="icon-container position-relative">
-        <i class="fa-regular fa-comments navbar-icon"></i>
-        <% if !@unread_messages_counter == nil %>
-          <div class="pill"> <%= @unread_messages_counter %></div>
+        <i class="fa-regular fa-comments navbar-icon #{'active' if current_page?(chatrooms_path)}"></i>
+        <% if @unread_messages_counter.present? %>
+          <div class="pill"><%= @unread_messages_counter %></div>
         <% end %>
       </div>
-        <span class="icon-text">Zenmates</span>
+      <span class="icon-text">Zenmates</span>
     <% end %>
 
     <%= link_to "#", class: "navbar-brand" do %>
       <div class="icon-container">
         <%= image_tag "profil_icone.png", class: "navbar-icon" %>
       </div>
-        <span class="icon-text">Profil</span>
+      <span class="icon-text">Profil</span>
     <% end %>
+
 
   </div>
 </div>
