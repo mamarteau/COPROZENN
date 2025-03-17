@@ -3,8 +3,11 @@
   <div class="d-flex align-items-center">
     <div class="flex-grow-1 d-flex align-items-center">
       <%= image_tag "gavel.png", width: 30, height: 30, class: "me-2" %>
-      <p class="mb-0 me-2"><%= decision.title %></p>
+      <p class="mb-0 me-2"><%= link_to decision_path(decision), style: "text-decoration:none;" do %></p>
+        <p class="lien mb-0 me-2"><%= decision.title %></p>
+      <% end %>
     </div>
+
     <% if decision.pending? %>
       <%= link_to "Ouvrir", open_decision_path(decision),
         class: "btn secondary-btn btn-xs d-none",
