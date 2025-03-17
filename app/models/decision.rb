@@ -9,6 +9,7 @@ class Decision < ApplicationRecord
   after_save :broadcast_vote, if: :opened?
   after_save :broadcast_meeting, if: :closed?
 
+
   enum :status, {
     pending: 0,
     opened: 1,
@@ -50,7 +51,6 @@ class Decision < ApplicationRecord
                         target: dom_id(self.meeting),
                         locals: { meeting: self.meeting }
   end
-
 end
 
 
