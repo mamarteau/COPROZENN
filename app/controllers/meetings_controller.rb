@@ -3,11 +3,12 @@ class MeetingsController < ApplicationController
 
   def index
     @meetings = Meeting.all
-    @title = "Mes meetings"
+    @title = "Mes réunions"
   end
 
   def show
-    @decisions = @meeting.decisions # - @meeting.decisions.joins(:votes).where(user: current_user).uniq
+    # @decisions = @meeting.decisions # - @meeting.decisions.joins(:votes).where(user: current_user).uniq
+    @title = @meeting.title
   end
 
   def new

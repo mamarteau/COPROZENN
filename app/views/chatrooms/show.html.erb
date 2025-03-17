@@ -1,4 +1,4 @@
-<div class="container chat card border-0 rounded shadow-lg p-4" style="max-width: 700px; width: 100%; background-color: #f1ece6;">
+<div class="container chat card border-0 rounded p-4" style="max-width: 700px; width: 100%">
 
   <%= turbo_stream_from "chatroom_#{@chatroom.id}_messages" %>
   <div id="messages" class="messages">
@@ -8,14 +8,17 @@
   </div>
 
   <%= simple_form_for [@chatroom, @message],
-  html: {class: "d-flex",
+  html: {class: "d-flex messages-form",
          data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|
   %>
     <%= f.input :content,
       label: false,
       placeholder: "",
-      wrapper_html: {class: "flex-grow-1"}
+      wrapper_html: {class: "flex-grow-1", style: "margin-bottom: 0px !important;"},
+      input_html: { class: "message-text"}
     %>
-    <%= f.submit "Envoyer", :class => "primary-btn" %>
+    <%= button_tag type: "submit", class: "primary-btn message-btn" do %>
+      <i class="fa-regular fa-paper-plane"></i>
+    <% end %>
   <% end %>
 </div>

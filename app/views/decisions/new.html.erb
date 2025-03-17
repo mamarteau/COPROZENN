@@ -3,23 +3,26 @@
    <div class="document-body">
      <div class="row">
       <div class="col">
-      <%= simple_form_for [@meeting, @decision] do |f| %>
-          <%= f.input :description, label: "Description" %>
-        </div>
-        <div class="decison-card-body">
-          <%= f.input :file, as: :file, label: "Document" %>
-        </div>
-        <div class="decison-card-body">
-          <%= f.input :document_name, label: "Nom document" %>
-        </div>
-        <div class="decison-card-body">
-          <%= f.input :document_tag, label: "Tag document" %>
-        </div>
-         <div class="document-submit-container">
-            <%= f.submit "Submit", class: "secondary-btn secondary-btn:hover" %>
+        <%= simple_form_for [@meeting, @decision] do |f| %>
+            <%= f.input :title, label: "Titre" %>
           </div>
-      <% end %>
-        </div>
+          <div class="decison-card-body">
+            <%= f.input :description, label: "Description" %>
+          </div>
+          <div class="decison-card-body">
+            <%= f.input :file, as: :file, label: "Document" %>
+          </div>
+          <div class="decison-card-body">
+            <%= f.input :document_name, label: "Nom document" %>
+          </div>
+          <div class="decison-card-body">
+            <%= f.input :document_tag, label: "Tag document" %>
+          </div>
+          <div class="document-submit-container">
+              <%= f.submit "Submit", class: "secondary-btn secondary-btn:hover" %>
+            </div>
+        <% end %>
       </div>
-</div>
+    </div>
+  </div>
 </div>

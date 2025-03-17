@@ -55,14 +55,10 @@ class DecisionsController < ApplicationController
     result = @decision.votes.where(value: true).count > @decision.votes.where(value: false).count
     @decision.accepted = result
     @decision.closed!
-
-    # @decision.update(accepted: @decision.for >= @decision.against)
-    redirect_to @decision.meeting
   end
 
   def open
     @decision.opened!
-    redirect_to @decision.meeting
   end
 
   def vote
@@ -71,12 +67,16 @@ class DecisionsController < ApplicationController
     @vote.decision = @decision
     @vote.save
         flash[:notice] = "Votre vote a été pris en compte."
+
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   private
 
   def decision_params
-    params.require(:decision).permit(:description)
+    params.require(:decision).permit(:title, :description)
   end
 
    def document_params

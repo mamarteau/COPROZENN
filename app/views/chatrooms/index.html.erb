@@ -5,7 +5,7 @@
       <%= link_to "Nouvelle conversation", new_chatroom_path, class:"secondary-btn float-end" %>
     </div>
   </div>
-  <div class="row justify-content-evenly g-3 mt-3">
+  <div class="row justify-content-evenly mt-5">
     <% if @chatrooms.empty? %>
       <div class="card" style="color: #6c757d; width: 80%; margin: auto; height: 16rem; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
         <div class="card-body" style="padding: 1rem;">
@@ -16,21 +16,25 @@
       <% @chatrooms.each do |chatroom| %>
         <%= link_to chatroom_path(chatroom), class: "text-decoration-none" do %>
           <% if !chatroom.name.blank? %>
-            <div class="document-affichage">
-              <div class="document-icon">
-                <i class="fa-regular fa-comments"></i>
-              </div>
+            <div class="chat-card">
+              <%# <div class="document-icon"> %>
+                <%= image_tag "coproperty.png", height: 50, width: 50%>
+              <%# </div> %>
               <div class="document-name">
                 <p><%= chatroom.name %></p>
               </div>
             </div>
           <% else %>
-            <div class="document-affichage">
-              <div class="document-icon">
-                <i class="fa-regular fa-comments"></i>
-              </div>
+            <div class="chat-card">
+              <% other_user = chatroom.users.where.not(id: current_user.id).first %>
+              <%# <div class="document-icon"> %>
+                <% if other_user.photo.attached? %>
+                  <%= cl_image_tag other_user.photo.key, width: 50, height: 50%>
+                <% else %>
+                  <i class="fa-regular fa-comments"></i>
+                <% end %>
+              <%# </div> %>
               <div class="document-name">
-                <% other_user = chatroom.users.where.not(id: current_user.id).first %>
                 <p><%= other_user.first_name %></p>
               </div>
             </div>
