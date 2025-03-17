@@ -66,6 +66,8 @@ class DecisionsController < ApplicationController
     @vote.user = current_user
     @vote.decision = @decision
     @vote.save
+        flash[:notice] = "Votre vote a été pris en compte."
+
     respond_to do |format|
       format.turbo_stream
     end

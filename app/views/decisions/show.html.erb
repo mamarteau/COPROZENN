@@ -1,8 +1,9 @@
 <div class="container document-container">
   <div class="document-card">
    <div class="document-body">
-    <p><strong>Description:</strong> <%= @decision.description %></p>
-    <p><strong>Statut:</strong> <%= @decision.status %></p>
+    <p><strong>Titre :</strong> <%= @decision.title %></p>
+    <p><strong>Description :</strong> <%= @decision.description %></p>
+    <p><strong>Statut :</strong> <%= @decision.status %></p>
 
     <p><%= link_to "Ajouter un document", new_decision_document_path(@decision), class:"secondary-btn "%></p>
     <p><%= link_to 'Modifier', edit_decision_path(@decision), class:"secondary-btn "%></p>
@@ -16,39 +17,5 @@
         </div>
         <% end %>
       <% end %>
-
-
-   <div class="document-card">
-  <div class="document-body">
-  <% flash.each do |key, message| %>
-  <div class="alert alert-<%= key == "notice" ? "success" : key == "alert" ? "danger" : "warning" %>">
-    <%= message %>
   </div>
-<% end %>
-
-    <% if flash[:notice] %>
-      <div class="alert alert-success">
-      <%= flash[:notice] %>
-      </div>
-    <% elsif flash[:alert] %>
-      <div class="alert alert-danger">
-      <%= flash[:alert] %>
-      </div>
-    <% end %>
-    <% if @decision.status == "opened" && !@decision.already_voted_by?(current_user) %>
-      <div class="vote-card">
-        <h3>Voter sur cette décision</h3>
-        <div class="vote-buttons d-flex justify-content-start gap-5">
-          <%= button_to 'Pour', vote_decision_path(@decision, vote_value: 'for'), data: { turbo_method: :post }, class: 'secondary-btn' %>
-          <%= button_to 'Contre', vote_decision_path(@decision, vote_value: 'against'), data: { turbo_method: :post }, class: 'secondary-btn' %>
-        </div>
-      </div>
-    <% elsif @decision.status == "closed" %>
-      <div class="vote-card">
-        <h3>La décision est fermée</h3>
-      </div>
-    <% end %>
   </div>
-</div>
-</div>
-</div>
