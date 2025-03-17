@@ -55,15 +55,10 @@ class DecisionsController < ApplicationController
     result = @decision.votes.where(value: true).count > @decision.votes.where(value: false).count
     @decision.accepted = result
     @decision.closed!
-
-    # @decision.update(accepted: @decision.for >= @decision.against)
-    # redirect_to @decision.meeting
   end
 
   def open
     @decision.opened!
-    # render :head
-    # redirect_to @decision.meeting
   end
 
   def vote
@@ -74,7 +69,7 @@ class DecisionsController < ApplicationController
     respond_to do |format|
       format.turbo_stream
     end
-   end
+  end
 
   private
 
