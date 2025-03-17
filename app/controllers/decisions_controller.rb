@@ -74,7 +74,7 @@ class DecisionsController < ApplicationController
     respond_to do |format|
       format.turbo_stream
     end
-  end
+   end
 
   private
 
