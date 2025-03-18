@@ -46,8 +46,9 @@ class Decision < ApplicationRecord
   end
 
   def broadcast_meeting
+    partial_path = meeting.over? ? "meetings/over_show" : "meetings/show"
     broadcast_replace_to dom_id(self.meeting),
-                        partial: "meetings/show",
+                        partial: partial_path,
                         target: dom_id(self.meeting),
                         locals: { meeting: self.meeting }
   end
