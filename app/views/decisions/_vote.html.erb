@@ -18,12 +18,12 @@
                 class: 'rectangle justify-content-center'
           %>
         </div>
-        <div id="<%= dom_id(decision) %>_result">
+        <div id="<%= dom_id(decision) %>_result" >
         </div>
-        <div class="d-flex justify-content-end mt-3">
-          <% if decision.opened? %>
+        <div class="d-flex  justify-content-end mt-3">
+          <% if decision.opened?%>
             <%= link_to "Fermer", close_decision_path(decision),
-              class: "btn-vote",
+              class: "btn-vote'",
               data: {
                 turbo_method: :patch,
                 meeting_target: "adminBtn"
