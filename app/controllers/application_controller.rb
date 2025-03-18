@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def compute_unread_messages_counter
+    puts "ZZZZZZ"
     @unread_messages_counter = 0
     return unless user_signed_in?
 
