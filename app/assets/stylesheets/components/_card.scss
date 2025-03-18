@@ -290,3 +290,18 @@ body:has(#new-document) {
   height: 4rem;
   transition: box-shadow 0.3s ease-in-out;
 }
+
+
+.rectangle {
+  background: #f1ece6;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #033e8a;
+  overflow: hidden;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 55px;
+  border: none;
+  color: #358f80;
+}

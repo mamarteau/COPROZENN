@@ -1,11 +1,11 @@
 <%= turbo_stream.replace(dom_id(@decision)) do %>
   <% if @decision.vote_of(current_user).value %>
-    <span class="text-success">✅ Vous avez voté "pour".</span>
+    <h3 class="text">✅ Vous avez voté "pour".</h3>
   <% else %>
-    <span class="text-danger">❌ Vous avez voté "contre".</span>
+    <h3 class="text">✅ Vous avez voté "contre".</h3>
   <% end %>
 
-  <p>Le vote est toujours en cours</p>
+  <p><em>Le vote est toujours en cours</em></p>
 
   <%#= render "decisions/result", decision: @decision %>
 <% end %>
