@@ -1,22 +1,21 @@
 <%= turbo_stream_from dom_id(decision) %>
 <div class="container mt-5 justify-content-center" id="<%= dom_id(decision.meeting) %>">
   <div class="d-flex flex-column gap-4" data-controller="vote">
-  <div class="show-card py-3 mb-3">
     <div class="show-card-header mb-3">
       <h4 class=""><strong><%= decision.title %></strong></h4>
     </div>
-    <div class="px-3 d-flex flex-column gap-2">
+    <div class="px-3">
       <p><%= decision.description %></p>
-    <div class="d-flex justify-content-end mt-3">
-        <div class="vote-buttons d-flex justify-content-start gap-5 waiting-for-vote"
+    <div class="mt-3">
+        <div class="vote-buttons gap-5 waiting-for-vote"
               id="<%= dom_id(decision) %>">
           <%= button_to 'Pour', vote_decision_path(decision, vote_value: 'for'),
                 data: { turbo_method: :post },
-                class: 'secondary-btn'
+                class: 'rectangle justify-content-center mb-5'
           %>
           <%= button_to 'Contre', vote_decision_path(decision, vote_value: 'against'),
                 data: { turbo_method: :post },
-                class: 'secondary-btn'
+                class: 'rectangle justify-content-center'
           %>
         </div>
         <div id="<%= dom_id(decision) %>_result">
@@ -24,7 +23,7 @@
         <div class="d-flex justify-content-end mt-3">
           <% if decision.opened? %>
             <%= link_to "Fermer", close_decision_path(decision),
-              class: "btn secondary-btn d-none",
+              class: "btn-vote",
               data: {
                 turbo_method: :patch,
                 meeting_target: "adminBtn"
