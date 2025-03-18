@@ -55,10 +55,12 @@ class DecisionsController < ApplicationController
     result = @decision.votes.where(value: true).count > @decision.votes.where(value: false).count
     @decision.accepted = result
     @decision.closed!
+    # Pas de render ou de redirect car un stream actualise la page
   end
 
   def open
     @decision.opened!
+    # Pas de render ou de redirect car un stream actualise la page
   end
 
   def vote
