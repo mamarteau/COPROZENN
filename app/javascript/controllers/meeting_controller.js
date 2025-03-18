@@ -18,5 +18,4 @@ export default class extends Controller {
 
     element.classList.remove('d-none');
   }
-
 }

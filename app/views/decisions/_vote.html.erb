@@ -23,11 +23,12 @@
         <div class="d-flex  justify-content-end mt-3">
           <% if decision.opened?%>
             <%= link_to "Fermer", close_decision_path(decision),
-              class: "btn-vote'",
+              class: "btn-vote d-none",
               data: {
                 turbo_method: :patch,
                 meeting_target: "adminBtn"
-              } %>
+              }
+            %>
           <% end %>
         </div>
     </div>
