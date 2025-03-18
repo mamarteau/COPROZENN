@@ -31,6 +31,7 @@
   display: inline-block;
   border: 2px solid #358F80;
   outline: none;
+  
 }
 
 .secondary-btn:hover {
@@ -54,4 +55,17 @@
 
 .btn-xs {
   padding: 0.15rem 0.75rem;
+}
+
+.btn-vote {
+  background-color: #358F80;
+  color: #ffff;
+  padding: 6px 28px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 16px;
+  display: inline-block;
+  border: 2px solid #358F80;
+  outline: none;
 }
