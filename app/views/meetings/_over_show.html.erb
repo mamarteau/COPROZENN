@@ -1,7 +1,7 @@
 <div id="<%= dom_id(meeting) %>" class="container mt-5 justify-content-center">
 
       <div class="show-card-header mb-3">
-        <h4 class=""><strong><%= meeting.title %></strong></h4>
+        <h4 class=""><strong>Informations </strong></h4>
       </div>
       <div class="px-3">
         <p><i><%= l(meeting.date, format: :long) %></i></p>
@@ -30,6 +30,7 @@
     <div class="show-card-header mb-3">
       <h4 class=""><strong>Documents</strong></h4>
     </div>
+
       <div class="px-3">
         <% if meeting.documents.any? %>
           <% meeting.documents.each do |document| %>
@@ -41,6 +42,7 @@
               <% end %>
               </div>
             </div>
+
           <% end %>
         <% end %>
       </div>
