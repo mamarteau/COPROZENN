@@ -31,7 +31,7 @@
 
         <%= render "decisions/form", meeting: meeting, decision: @decision %>
       </div>
-      
+
     <% end %>
   </div>
   <br>
@@ -46,7 +46,7 @@
           <i class="fa-regular fa-comments"></i>
           </div>
           <div class="document-name">
-            <p><%= @unread_messages_counter %> nouveau(x) message(s)</p>
+            <p><%= @unread_messages_counter %> <%= @unread_messages_counter > 1 ? "nouveaux messages" : "nouveau message" %></p>
           </div>
         </div>
       <% end %>

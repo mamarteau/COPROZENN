@@ -49,10 +49,17 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: -5px;
-    right: -5px;
     background-color:#023e8a;
     font-size: 0.8em;
+  }
+  .pill-chatroom {
+    top: 20px;
+    right: 12px;
+  }
+
+  .pill-navbar {
+    top: -5px;
+    right: -5px;
   }
 }
 
