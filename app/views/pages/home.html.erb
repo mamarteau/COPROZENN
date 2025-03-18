@@ -35,32 +35,37 @@
     <% end %>
   </div>
   <br>
-  <h4><strong>Mes notifications :</strong></h4>
+  <h4><strong>Mes actualités :</strong></h4>
   <br>
+
   <div>
- <div class="document-affichage" style="margin-bottom:10px;">
-    <div class="document-icon">
-    <i class="fa-regular fa-bell"></i>
-    </div>
-    <div class="document-name">
-      <p>AG à 18H</p>
-    </div>
-    </div>
-     <div class="document-affichage" style="margin-bottom:10px;">
-    <div class="document-icon">
-    <i class="fa-regular fa-bell"></i>
-    </div>
-    <div class="document-name">
-      <p>Marianne a publié sur copro 50</p>
-    </div>
-    </div>
-     <div class="document-affichage" style="margin-bottom:10px;">
-    <div class="document-icon">
-    <i class="fa-regular fa-bell"></i>
-    </div>
-    <div class="document-name">
-      <p>Fête des voisins le 30/04</p>
-    </div>
-    </div>
-    </div>
+    <% if @unread_messages_counter.present? %>
+      <%= link_to chatrooms_path, class: "text-decoration-none d-flex mb-1"  do %>
+        <div class="document-affichage" style="margin-bottom:10px;">
+          <div class="document-icon">
+          <i class="fa-regular fa-comments"></i>
+          </div>
+          <div class="document-name">
+            <p><%= @unread_messages_counter %> nouveau(x) message(s)</p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% documents = current_user.coproperty.documents.where("created_at > ?", Date.current) %>
+    <% if documents.any? %>
+      <% documents.each do |document| %>
+        <%= link_to document_path(document), class: "text-decoration-none d-flex mb-1"  do %>
+          <div class="document-affichage" style="margin-bottom:10px;">
+            <div class="document-icon">
+              <i class="fa-regular fa-file"></i>
+            </div>
+            <div class="document-name text-decoration-none">
+              <p> <%= document.name %> </p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
+</div>
