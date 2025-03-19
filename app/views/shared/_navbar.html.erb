@@ -3,28 +3,28 @@
 
 <%= link_to root_path, class: "navbar-icon #{'active' if current_page?(root_path)}" do %>
   <div class="icon-container">
-    <i class="fa-solid fa-house" style= "color: #adb5bd"></i>
+    <i class="fa-solid fa-house" style= "color: #ffffff"></i>
   </div>
   <span class="icon-text">Acceuil</span>
 <% end %>
 
 <%= link_to documents_path, class: "navbar-icon #{'active' if current_page?(documents_path)}" do %>
   <div class="icon-container">
-    <i class="fa-regular fa-file" style= "color:#adb5bd"></i>
+    <i class="fa-regular fa-file" style= "color:#ffffff"></i>
   </div>
   <span class="icon-text">Documents</span>
 <% end %>
 
 <%= link_to meetings_path, class: "navbar-icon #{'active' if current_page?(meetings_path)}" do %>
   <div class="icon-container">
-    <i class="fa-regular fa-calendar" style= "color:#adb5bd"></i>
+    <i class="fa-regular fa-calendar" style= "color:#ffffff"></i>
   </div>
   <span class="icon-text">Réunions</span>
 <% end %>
 
 <%= link_to chatrooms_path, class: "navbar-icon #{'active' if current_page?(chatrooms_path)}" do %>
   <div class="icon-container position-relative">
-    <i class="fa-regular fa-comments" style= "color:#adb5bd"></i>
+    <i class="fa-regular fa-comments" style= "color:#ffffff"></i>
     <% if @unread_messages_counter.present? && @unread_messages_counter >= 1 %>
       <div class="pill pill-navbar"><%= @unread_messages_counter %></div>
     <% end %>
@@ -34,7 +34,7 @@
 
 <%= link_to "#", class: "navbar-icon" do %>
   <div class="icon-container" >
-    <i class="fa-regular fa-user" style= "color:#adb5bd"></i>
+    <i class="fa-regular fa-user" style= "color:#ffffff"></i>
   </div>
   <span class="icon-text">Profil</span>
 <% end %>
