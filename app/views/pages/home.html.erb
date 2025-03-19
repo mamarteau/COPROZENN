@@ -52,6 +52,8 @@
       <% end %>
     <% end %>
 
+
+  <% if current_user %>
     <% documents = current_user.coproperty.documents.where("created_at > ?", Date.current) %>
     <% if documents.any? %>
       <% documents.each do |document| %>
@@ -67,5 +69,6 @@
         <% end %>
       <% end %>
     <% end %>
+  <% end %>
   </div>
 </div>

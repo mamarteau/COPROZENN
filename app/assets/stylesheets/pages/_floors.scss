@@ -1,0 +1,17 @@
+.floor-map {
+  svg {
+    height: 43vh;
+  }
+}
+
+.user-infos {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.floor-map-svgs {
+  > div {
+    flex: 0 0 100%;
+  }
+}
