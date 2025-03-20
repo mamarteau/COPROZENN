@@ -2,13 +2,15 @@
   text-align: right;
   margin-left: auto;
   max-width: 70%;
-  background-color: #d1e7dd;
+  background-color: #fe6363;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 10px !important;
+  color: #ffffff !important;
 }
 
 .received-message {
-  background-color: #e9ecef;
+  background-color: #ffffff;
   color: black;
   max-width: 70%;
+  border-radius: 10px !important;
 }

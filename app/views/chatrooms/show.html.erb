@@ -1,4 +1,7 @@
-<div class="container chat card border-0 rounded p-4" style="max-width: 700px; width: 100%">
+<div class="container chat card border-0 rounded" style="max-width: 800px; width: 100% display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    border-radius: 19px !important;">
 
   <%= turbo_stream_from "chatroom_#{@chatroom.id}_messages" %>
   <div id="messages" class="messages">
@@ -15,7 +18,7 @@
       label: false,
       placeholder: "",
       wrapper_html: {class: "flex-grow-1", style: "margin-bottom: 0px !important;"},
-      input_html: { class: "message-text"}
+      input_html: { class: "message-text", style: "border: none; box-shadow: none;"}
     %>
     <%= button_tag type: "submit", class: "primary-btn message-btn" do %>
       <i class="fa-regular fa-paper-plane"></i>
