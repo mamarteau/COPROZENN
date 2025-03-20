@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :compute_unread_messages_counter
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   private
 
   def compute_unread_messages_counter

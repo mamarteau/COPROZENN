@@ -1,6 +1,6 @@
-<div class="p-2 d-flex justify-content-between align-items-left flex-column separator">
+<div class="pt-2 pb-3 d-flex gap-2 justify-content-between align-items-left flex-column separator">
 
-  <div class="d-flex align-items-center">
+  <div class="d-flex align-items-left flex-column gap-3">
     <div class="flex-grow-1 d-flex align-items-center">
       <%= image_tag "gavel.png", width: 30, height: 30, class: "me-2" %>
       <%= link_to decision_path(decision), class: "text-decoration-none" do %>
@@ -8,15 +8,15 @@
       <% end %>
     </div>
     <% if decision.pending? %>
-      <%= link_to "Ouvrir", open_decision_path(decision),
-        class: "btn secondary-btn btn-xs d-none",
+      <%= link_to "Ouvrir le vote", open_decision_path(decision),
+        class: "show-btn fs-6 d-none",
         data: {
           turbo_method: :patch,
           meeting_target: "adminBtn"
         } %>
     <% elsif decision.opened? %>
-      <%= link_to "Fermer", close_decision_path(decision),
-        class: "btn secondary-btn btn-xs d-none",
+      <%= link_to "Clôturer le vote", close_decision_path(decision),
+        class: "show-btn fs-5 d-none",
         data: {
           turbo_method: :patch,
           meeting_target: "adminBtn"
