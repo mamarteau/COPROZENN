@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def floors
+    @title = "Plan de l'immeuble"
   end
 
   def user_infos
