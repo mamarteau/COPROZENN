@@ -2,7 +2,7 @@ class ChatroomsController < ApplicationController
   before_action :set_chatroom, only: [:show]
 
   def index
-    @chatrooms = current_user.chatrooms
+    @chatrooms = current_user.chatrooms.joins(:messages).order("messages.created_at DESC").uniq
     @title = "Zenmates"
   end
 
