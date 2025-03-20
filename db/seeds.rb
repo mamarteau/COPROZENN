@@ -171,6 +171,7 @@ file5 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
 document5.file.attach(io: file5, filename: "poubelles.jpg", content_type: "image/jpg")
 document5.save!
 
+
 document6 = Document.new(name: "Reglement de la copropriété", tag: "General", user: user1, coproperty: coproperty1)
 file6 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
 document6.file.attach(io: file6, filename: "poubelles.jpg", content_type: "image/jpg")
