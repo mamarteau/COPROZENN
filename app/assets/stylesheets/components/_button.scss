@@ -71,6 +71,24 @@
   outline: none;
 }
 
+
+.button-plus-right {
+  background-color: #fe6363;
+  /* padding: 20px; */
+  border-radius: 50%;
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  font-size: 30px;
+  text-decoration: none;
+  width: 35px;
+  color: white;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
 .building-btn {
   background-color: #fe6363;
   color: white;
