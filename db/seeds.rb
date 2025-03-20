@@ -109,7 +109,7 @@ users = [
 users.each do |user|
   u = User.create!(user.merge(coproperty: coproperty1))
   u.photo.attach(
-    io: File.open(Rails.root.join("app/assets/images/#{u.first_name}.png")),
+    io: File.open(Rails.root.join("app/assets/images/#{u.first_name.downcase}.png")),
     filename: "#{u.first_name}.png",
     content_type: 'image/png'
   )
