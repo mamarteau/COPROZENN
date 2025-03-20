@@ -33,8 +33,11 @@
 <% end %>
 
 <%= link_to "#", class: "navbar-icon" do %>
-  <div class="icon-container" >
-    <i class="fa-regular fa-user" style= "color:#ffffff"></i>
+  <div class="navbar-avatar">
+    <% if current_user.status? %>
+      <i class="fa-solid fa-crown text-yellow"></i>
+    <% end %>
+    <%= cl_image_tag current_user.photo.key, width: 32, height: 32%>
   </div>
   <span class="icon-text">Profil</span>
 <% end %>
