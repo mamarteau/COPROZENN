@@ -33,7 +33,7 @@ class DecisionsController < ApplicationController
       )
       @decision.documents << @document
     end
-    redirect_to decision_path(@decision)
+    redirect_to meeting_path(@meeting)
   else
     render :new, status: :unprocessable_entity
   end
