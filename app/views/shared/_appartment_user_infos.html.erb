@@ -4,9 +4,12 @@
     <div class="flex-grow-1">
       <p class="fs-5"><%= user.first_name %> <%= user.last_name %></p>
       <p class="mb-3 opacity-50"><%= user.email %></p>
-      <div class="d-flex justify-content-end">
-        <%= link_to "Contacter", "", class: "btn btn-outline-secondary" %>
-      </div>
+      <% unless current_user == user %>
+        <div class="d-flex justify-content-end">
+          <% chatroom = current_user.chatroom_with(user) %>
+          <%= link_to "Contacter", chatroom_path(chatroom), class: "btn btn-outline-secondary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
