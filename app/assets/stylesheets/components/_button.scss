@@ -43,11 +43,11 @@
 .show-btn {
   background-color: #fe6363;
   color: white;
-  padding: 5px 15px;
+  padding: 11px 15px;
   text-align: center;
   text-decoration: none;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 16px;
   display: inline-block;
   border: none;
   outline: none;
@@ -71,6 +71,7 @@
   outline: none;
 }
 
+
 .button-plus-right {
   background-color: #fe6363;
   /* padding: 20px; */
@@ -86,4 +87,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  }
+
+.building-btn {
+  background-color: #fe6363;
+  color: white;
+  padding: 15px 26px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 18px;
+  display: inline-block;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-bottom: 30px;
+  margin-top: 30px;
 }

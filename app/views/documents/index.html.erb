@@ -1,12 +1,14 @@
 <div class= "button-plus">
-<%= link_to new_document_path, style: "text-decoration: none;" do %>
+  <button type="button" class="modal-btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
   <p style="
-    font-size: 60px;
-    color: white;
-    margin: 0;
-    text-decoration: none;">+</p>
-    <% end %>
+      font-size: 60px;
+      color: white;
+      margin: 0;
+      text-decoration: none;">+</p>
+  </button>
 </div>
+
+<%= render "form_new_doc", document: @document %>
 
 
 <div class="container">
@@ -24,9 +26,10 @@
           <div class="document-icon">
             <i class="fa-regular fa-file"></i>
           </div>
-          <div class="document-name">
-            <p><%= document.name %></p>
-          </div>
+            <div class="document-name text-decoration-none d-flex justify-content-between">
+              <p> <%= document.name %> </p>
+              <p style="font-size: 13px;"><%= document.created_at.strftime('%d/%m/%Y') %></p>
+            </div>
         </div>
       <% end %>
     <% end %>

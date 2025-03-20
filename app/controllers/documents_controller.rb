@@ -6,6 +6,7 @@ class DocumentsController < ApplicationController
   def index
     @documents = Document.where(coproperty: current_user.coproperty)
     @title = "Mes documents"
+    @document = Document.new
   end
 
   def show

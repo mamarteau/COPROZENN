@@ -1,0 +1,27 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un document</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <%= simple_form_for([@documentable, @document]) do |f| %>
+          <div class="card-body">
+            <div class="row">
+             <div class="col">
+            <%= f.input :name, label: "Nom" %>
+          </div>
+          <div class="form-group mb-3">
+            <%= f.input :file, as: :file, label: "Document" %>
+          </div>
+          <div class="d-flex justify-content">
+            <%= f.submit "Ajouter", class: "show-btn show-btn:focus show-btn:hover" %>
+          </div>
+          <% end %>
+            </div>
+          </div>
+      </div>
+      </div>
+    </div>
+  </div>

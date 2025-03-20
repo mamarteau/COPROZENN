@@ -7,13 +7,17 @@
   text-align: center;
   background-color: #036666;
   box-shadow: 20px;
-  height: 80px;
+  height: 70px;
   display: flex;
   align-items: center;
+  .container-fluid {
+    justify-content: space-around;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -28,7 +32,6 @@
 
 .navbar-icon {
   height: auto;
-  margin-bottom: 5px;
   transition: color 0.3sease-in-out;
   display: flex;
   flex-direction: column;
@@ -80,6 +83,7 @@
 .icon-text {
   font-size: 14px;
   color: #ffffff;
+  display: none;
 }
 
 .icon-text.active {
@@ -93,6 +97,10 @@
   transition: color 0.3s ease-in-out;
   text-align: center;
   opacity: 0.5;
+}
+
+.navbar-icon .fa-crown {
+  opacity: 1;
 }
 
 .navbar-icon.active i {
@@ -113,5 +121,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+.navbar-avatar {
+  position: relative;
+  i.fa-crown {
+    position: absolute;
+    top: -19px;
+    right: -5px;
+    transform: rotate(21deg);
+    font-size: 1.5rem;
+  }
 }
 
