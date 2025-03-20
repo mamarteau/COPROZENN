@@ -10,11 +10,14 @@ class MeetingsController < ApplicationController
     render pdf: "compte_rendu_#{@meeting.title.gsub(" ", "_")}",
            template: "meetings/show_pdf",
            layout: "pdf"
+
   end
 
   def show
     # @decisions = @meeting.decisions # - @meeting.decisions.joins(:votes).where(user: current_user).uniq
     @title = @meeting.title
+    @document = Document.new
+    @decision = Decision.new
   end
 
   def new
