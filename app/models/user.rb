@@ -19,9 +19,13 @@ class User < ApplicationRecord
     "app_4" => "claire@gmail.com",
     "app_5" => "jean@gmail.com",
     "app_6" => "antoine@gmail.com",
-    "app_7" => "irina@gmail.com",
-    "app_8" => "glenda@gmail.com",
-    "app_9" => "brinu@gmail.com",
-    "app_10" => "claire@gmail.com"
+    "app_7" => "flore@gmail.com",
+    "app_8" => "laura@gmail.com",
+    "app_9" => "gil@gmail.com",
+    "app_10" => "juliette@gmail.com"
   }
+
+  def chatroom_with(other_user)
+    other_user.chatrooms.find { |chatroom| chatroom.in?(self.chatrooms) && chatroom.users.count == 2 }
+  end
 end

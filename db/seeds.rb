@@ -69,6 +69,50 @@ user6.photo.attach(
 user6.coproperty = coproperty1
 user6.save!
 
+users = [
+  {
+    email: "juliette@gmail.com",
+    password: "testdemdp",
+    first_name: "Juliette",
+    last_name: "Danielczyk",
+    status: false,
+    square_meters: 100
+  },
+  {
+    email: "gil@gmail.com",
+    password: "testdemdp",
+    first_name: "Gil",
+    last_name: "Dayan",
+    status: false,
+    square_meters: 200
+  },
+  {
+    email: "flore@gmail.com",
+    password: "testdemdp",
+    first_name: "Flore",
+    last_name: "de Paillerets",
+    status: false,
+    square_meters: 100
+  },
+  {
+    email: "laura@gmail.com",
+    password: "testdemdp",
+    first_name: "Laura",
+    last_name: "Mendelzon",
+    status: false,
+    square_meters: 200
+  }
+]
+
+users.each do |user|
+  u = User.create!(user.merge(coproperty: coproperty1))
+  u.photo.attach(
+    io: File.open(Rails.root.join("app/assets/images/#{u.first_name}.png")),
+    filename: "#{u.first_name}.png",
+    content_type: 'image/png'
+  )
+end
+
 puts "Done creating users"
 
 puts "Creating meetings"
@@ -132,6 +176,20 @@ chatroom6 = Chatroom.new(coproperty: coproperty1)
 chatroom6.save!
 puts "Done creating chatrooms"
 
+messages = [
+  "N'oublie pas la fête des voisins!",
+  "N'oublie pas la fête des voisins!",
+  "N'oublie pas la fête des voisins!",
+  "N'oublie pas la fête des voisins!"
+]
+
+users.each_with_index do |user, index|
+  chatroom = Chatroom.create!(coproperty: coproperty1)
+  cm_1 = ChatMember.create!(user: User.find_by(email: user[:email]), chatroom: chatroom)
+  cm_2 = ChatMember.create!(user: user1, chatroom: chatroom)
+  Message.create!(chatroom: chatroom,content: messages[index], chat_member: cm_2)
+end
+
 puts "Creating chatmembers"
 chatmember1 = ChatMember.new(user: user1, chatroom: chatroom1)
 chatmember1.save!
@@ -154,6 +212,10 @@ chatmember9 = ChatMember.new(user: user5, chatroom: chatroom3)
 chatmember9.save!
 chatmember10 = ChatMember.new(user: user6, chatroom: chatroom3)
 chatmember10.save!
+users.each do |u|
+  user = User.find_by(email: u[:email])
+  ChatMember.create!(user: user, chatroom: chatroom3)
+end
 
 chatmember11 = ChatMember.new(user: user1, chatroom: chatroom4)
 chatmember11.save!

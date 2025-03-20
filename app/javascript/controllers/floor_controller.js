@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   change(event) {
-    this.appartmentTargets.forEach(t => t.setAttribute("fill", "white"))
+    this.appartmentTargets.forEach(t => t.setAttribute("fill", "white"));
     event.currentTarget.setAttribute("fill", "#fe6363");
     const appartmentId = event.currentTarget.id;
     fetch(`/user_infos?appartment_id=${appartmentId}`, {
