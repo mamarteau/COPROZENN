@@ -1,13 +1,15 @@
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-12">
-      <form class="d-flex col-sm-9 p-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="Chercher un document" aria-label="Search">
-        <div class="d-flex align-items-center"><i class="fa-solid fa-magnifying-glass"></i></div>
-      </form>
-      <%= link_to "Ajouter un document", new_document_path, class:"mt-4 secondary-btn float-end" %>
-    </div>
-  </div>
+<div class= "button-plus">
+<%= link_to new_document_path, style: "text-decoration: none;" do %>
+  <p style="
+    font-size: 60px;
+    color: white;
+    margin: 0;
+    text-decoration: none;">+</p>
+    <% end %>
+</div>
+
+
+<div class="container">
 <div class="row justify-content-evenly g-3 mt-3">
   <% if @documents.empty? %>
     <div class="card" style="color: #6c757d; width: 80%; margin: auto; height: 16rem; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;">
