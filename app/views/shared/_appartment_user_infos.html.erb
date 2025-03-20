@@ -7,7 +7,7 @@
       <% unless current_user == user %>
         <div class="d-flex justify-content-end">
           <% chatroom = current_user.chatroom_with(user) %>
-          <%= link_to "Contacter", chatroom_path(chatroom), class: "btn btn-outline-secondary" %>
+          <%= link_to "Contacter", chatroom_path(chatroom), class: "show-btn" %>
         </div>
       <% end %>
     </div>
