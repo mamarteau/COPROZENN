@@ -151,45 +151,45 @@ file1 = File.open(Rails.root.join("app/assets/images/seeds/devis.jpg"))
 document1.file.attach(io: file1, filename: "devis.jpg", content_type: "image/jpg")
 document1.save!
 
-# document2 = Document.new(name: "Devis ascenseur", tag: "devis", documentable: meeting3, user: user1, coproperty: coproperty1)
-# file2 = File.open(Rails.root.join("app/assets/images/seeds/ascenseur.jpeg"))
-# document2.file.attach(io: file2, filename: "ascenseur.jpeg", content_type: "image/jpeg")
-# document2.save!
+document2 = Document.new(name: "Devis ascenseur", tag: "devis", documentable: meeting3, user: user1, coproperty: coproperty1)
+file2 = File.open(Rails.root.join("app/assets/images/seeds/ascenseur.jpeg"))
+document2.file.attach(io: file2, filename: "ascenseur.jpeg", content_type: "image/jpeg")
+document2.save!
 
-# document3 = Document.new(name: "Devis poubelles", tag: "devis", documentable: meeting1, user: user1, coproperty: coproperty1)
-# file3 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
-# document3.file.attach(io: file3, filename: "poubelles.jpg", content_type: "image/jpg")
-# document3.save!
+document3 = Document.new(name: "Devis poubelles", tag: "devis", documentable: meeting1, user: user1, coproperty: coproperty1)
+file3 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
+document3.file.attach(io: file3, filename: "poubelles.jpg", content_type: "image/jpg")
+document3.save!
 
-# document4 = Document.new(name: "Compte rendu AG 2023", tag: "CR", user: user1, coproperty: coproperty1)
-# file4 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
-# document4.file.attach(io: file4, filename: "poubelles.jpg", content_type: "image/jpg")
-# document4.save!
+document4 = Document.new(name: "Compte rendu AG 2023", tag: "CR", user: user1, coproperty: coproperty1)
+file4 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
+document4.file.attach(io: file4, filename: "poubelles.jpg", content_type: "image/jpg")
+document4.save!
 
-# document5 = Document.new(name: "Compte rendu AG 2022", tag: "CR", user: user1, coproperty: coproperty1)
-# file5 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
-# document5.file.attach(io: file5, filename: "poubelles.jpg", content_type: "image/jpg")
-# document5.save!
+document5 = Document.new(name: "Compte rendu AG 2022", tag: "CR", user: user1, coproperty: coproperty1)
+file5 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
+document5.file.attach(io: file5, filename: "poubelles.jpg", content_type: "image/jpg")
+document5.save!
 
-# document6 = Document.new(name: "Reglement de la copropriété", tag: "General", user: user1, coproperty: coproperty1)
-# file6 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
-# document6.file.attach(io: file6, filename: "poubelles.jpg", content_type: "image/jpg")
-# document6.save!
+document6 = Document.new(name: "Reglement de la copropriété", tag: "General", user: user1, coproperty: coproperty1)
+file6 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
+document6.file.attach(io: file6, filename: "poubelles.jpg", content_type: "image/jpg")
+document6.save!
 
-# document7 = Document.new(name: "Carnet d'entretien", tag: "General", user: user1, coproperty: coproperty1)
-# file7 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
-# document7.file.attach(io: file7, filename: "poubelles.jpg", content_type: "image/jpg")
-# document7.save!
+document7 = Document.new(name: "Carnet d'entretien", tag: "General", user: user1, coproperty: coproperty1)
+file7 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
+document7.file.attach(io: file7, filename: "poubelles.jpg", content_type: "image/jpg")
+document7.save!
 
-# document8 = Document.new(name: "Diagnostic technique", tag: "General", user: user1, coproperty: coproperty1)
-# file8 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
-# document8.file.attach(io: file8, filename: "poubelles.jpg", content_type: "image/jpg")
-# document8.save!
+document8 = Document.new(name: "Diagnostic technique", tag: "General", user: user1, coproperty: coproperty1)
+file8 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
+document8.file.attach(io: file8, filename: "poubelles.jpg", content_type: "image/jpg")
+document8.save!
 
-# document9 = Document.new(name: "Diagnostic energetique", tag: "General", user: user1, coproperty: coproperty1)
-# file9 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
-# document9.file.attach(io: file9, filename: "poubelles.jpg", content_type: "image/jpg")
-# document9.save!
+document9 = Document.new(name: "Diagnostic energetique", tag: "General", user: user1, coproperty: coproperty1)
+file9 = File.open(Rails.root.join("app/assets/images/seeds/poubelles.jpg"))
+document9.file.attach(io: file9, filename: "poubelles.jpg", content_type: "image/jpg")
+document9.save!
 puts "Done creating documents"
 
 puts "Creating chatrooms"
