@@ -26,9 +26,10 @@
           <div class="document-icon">
             <i class="fa-regular fa-file"></i>
           </div>
-          <div class="document-name">
-            <p><%= document.name %></p>
-          </div>
+            <div class="document-name text-decoration-none d-flex justify-content-between">
+              <p> <%= document.name %> </p>
+              <p style="font-size: 13px;"><%= document.created_at.strftime('%d/%m/%Y') %></p>
+            </div>
         </div>
       <% end %>
     <% end %>
