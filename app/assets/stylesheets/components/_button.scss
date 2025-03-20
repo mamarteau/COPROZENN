@@ -51,6 +51,7 @@
   display: inline-block;
   border: none;
   outline: none;
+  width: 100%;
 }
 
 .btn-xs {
@@ -68,4 +69,21 @@
   display: inline-block;
   border: 2px solid #358F80;
   outline: none;
+}
+
+.button-plus-right {
+  background-color: #fe6363;
+  /* padding: 20px; */
+  border-radius: 50%;
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  font-size: 30px;
+  text-decoration: none;
+  width: 35px;
+  color: white;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

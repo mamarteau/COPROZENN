@@ -7,9 +7,6 @@
         <p><i><%= l(meeting.date, format: :long) %></i></p>
         <p><%= meeting.link %></p>
         <p><%= meeting.description %></p>
-      <div class="d-flex justify-content-center mt-3">
-        <%= link_to "Télécharger le compte rendu de réunion", show_pdf_meeting_path(meeting), class:"show-btn" %>
-      </div>
       </div>
 
   <div class="d-flex flex-column gap-4" data-controller="vote">
@@ -26,7 +23,7 @@
   </div>
 
 
-  <div class="show-card mt-5 py-3 mb-3">
+  <div class="show-card mt-3 py-3 mb-3">
     <div class="show-card-header mb-3">
       <h4 class=""><strong>Documents</strong></h4>
     </div>
@@ -45,6 +42,9 @@
 
           <% end %>
         <% end %>
+        <div class="d-flex justify-content-center mt-3">
+        <%= link_to "Télécharger le compte rendu de réunion", show_pdf_meeting_path(meeting), class:"show-btn" %>
+      </div>
       </div>
   </div>
 </div>

@@ -3,12 +3,25 @@
   id="<%= dom_id(decision) %>_result">
   <% total_pour = decision.for %>
   <% total_contre = decision.against %>
-
-  <% if total_pour > total_contre %>
-    <p class="mb-0 decision-subtext">La majorité a voté <strong>Pour</strong> avec <%= total_pour %> votes.</p>
-  <% elsif total_contre > total_pour %>
-    <p class="mb-0 decision-subtext">La majorité a voté <strong>Contre</strong> avec <%= total_contre %> votes.</p>
-  <% else %>
-    <p class="mb-0 decision-subtext">Il y a une égalité avec <%= total_pour %> votes "Pour" et <%= total_contre %> votes "Contre".</p>
-  <% end %>
+  <%# <div class="pie three"></div> %>
+  <div class="d-flex justify-content-between align-items-center gap-3 position-relative">
+    <% if total_pour > total_contre %>
+      <h3 class="mb-0 w-100"><span class="w-100 badge bg-success">Acceptée</span></h3>
+      <% if total_contre == 0 %>
+        <div class="pie" style="background: conic-gradient(#1EDD88 0% 100%,#1EDD88 100%);"></div>
+      <% else %>
+        <div class="pie" style="background: conic-gradient( #1EDD88 0% <%= (total_pour/(total_contre+total_pour).to_f)*100 %>%, #FD1015 <%= (total_contre/(total_contre+total_pour).to_f)*100 %>% 100%);"></div>
+      <% end %>
+    <% elsif total_contre > total_pour %>
+      <h3 class="mb-0 w-100"><span class="w-100 badge bg-danger">Rejetée</span></h3>
+      <% if total_pour == 0 %>
+        <div class="pie" style="background: conic-gradient(#FD1015 0% 100%,#FD1015 100%);"></div>
+      <% else %>
+        <div class="pie" style="background: conic-gradient( #1EDD88 0% <%= (total_pour/(total_contre+total_pour).to_f)*100 %>%,#FD1015 <%= (total_pour/(total_contre+total_pour).to_f)*100 %>% 100%);"></div>
+      <% end %>
+    <% else %>
+      <h3 class="mb-0 w-100"><span class="w-100 badge bg-info text-dark">Egalité</span></h3>
+      <div class="pie" style="background: conic-gradient(#1EDD88 0% 50%,#FD1015 50% 100%);"></div>
+    <% end %>
+  </div>
 </div>
