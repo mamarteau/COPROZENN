@@ -114,7 +114,7 @@ meeting1.save!
 # meeting2.user = user1
 # meeting2.coproperty = coproperty1
 # meeting2.save!
-meeting3 = Meeting.new(title: "AG 2025", date: Date.current + 5.months, description: "AG 2024 pour ravalement de façade")
+meeting3 = Meeting.new(title: "AG 2025", date: Date.current + 5.months, description: "AG 2025 - récapitulatif annuel")
 meeting3.user = user1
 meeting3.coproperty = coproperty1
 meeting3.save!
