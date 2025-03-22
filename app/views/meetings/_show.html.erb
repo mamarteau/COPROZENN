@@ -14,9 +14,9 @@
     <div class="show-card-header mb-3">
       <h4 class=""><strong>Décisions</strong></h4>
       <button type="button" class="modal-btn p-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-         <p class="button-plus-right" data= { turbo: false } >+</p>
+         <p class="button-plus-right">+</p>
       </button>
-<%= render "/decisions/form", meeting: @meeting, decision: @decision %>
+      <%= render "/decisions/form", meeting: meeting, decision: decision %>
     </div>
     <div class="px-3 d-flex flex-column gap-2">
       <% meeting.decisions.each do |decision| %>

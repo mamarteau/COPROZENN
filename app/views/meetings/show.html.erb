@@ -9,7 +9,7 @@
 
   <div data-controller="meeting"
     data-meeting-is-admin-value="<%= current_user.status %>">
-    <%= render "meetings/show", meeting: @meeting %>
+    <%= render "meetings/show", meeting: @meeting, decision: @decision %>
   </div>
 
 <% end %>
