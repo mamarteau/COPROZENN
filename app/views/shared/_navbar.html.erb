@@ -37,9 +37,11 @@
     <% if user_signed_in? && current_user.status? %>
       <i class="fa-solid fa-crown text-yellow"></i>
       <%= cl_image_tag current_user.photo.key, width: 32, height: 32%>
+    <% elsif user_signed_in? && !current_user.status?%>
+      <%= cl_image_tag current_user.photo.key, width: 32, height: 32%>
     <% else %>
-      <i class="fa-solid fa-user"></i>
-
+    
+      <i class="fa-regular fa-user"></i>
     <% end %>
   </div>
   <span class="icon-text">Profil</span>
